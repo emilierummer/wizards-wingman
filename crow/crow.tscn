@@ -1,16 +1,19 @@
-[gd_scene load_steps=11 format=3 uid="uid://bkx8cgllgvkhp"]
+[gd_scene load_steps=12 format=3 uid="uid://bkx8cgllgvkhp"]
 
 [ext_resource type="Script" path="res://crow/crow.gd" id="1_dk3t8"]
 [ext_resource type="Texture2D" uid="uid://c7fahpdx4ubet" path="res://crow/sprite_sheets/crow_wing.png" id="2_styte"]
 [ext_resource type="Texture2D" uid="uid://cscwk38e08os6" path="res://crow/sprite_sheets/crow_body.png" id="3_kdnd6"]
 [ext_resource type="Texture2D" uid="uid://dfvetcc6vg514" path="res://crow/sprite_sheets/crow_eye.png" id="4_i2mfa"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8tb87"]
+size = Vector2(15.0424, 9.43062)
+
 [sub_resource type="Animation" id="Animation_uo5m5"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite/BodySprite:position")
+tracks/0/path = NodePath("Pivot/BodySprite:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -22,7 +25,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite/WingSprite:position")
+tracks/1/path = NodePath("Pivot/WingSprite:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -39,7 +42,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite/BodySprite:position")
+tracks/0/path = NodePath("Pivot/BodySprite:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -51,7 +54,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite/WingSprite:position")
+tracks/1/path = NodePath("Pivot/WingSprite:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -72,7 +75,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite/BodySprite/EyeSprite:visible")
+tracks/0/path = NodePath("Pivot/BodySprite/EyeSprite:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -89,7 +92,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite/BodySprite/EyeSprite:visible")
+tracks/0/path = NodePath("Pivot/BodySprite/EyeSprite:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -108,23 +111,29 @@ _data = {
 [node name="Crow" type="CharacterBody2D"]
 script = ExtResource("1_dk3t8")
 
-[node name="Sprite" type="Sprite2D" parent="."]
+[node name="BodyCollider" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(8, 12, 14, 21, 4, 24, -4, 15, -7, 10, -31, 18, -29, 11, -4, -7, 7, -12, 15, -21, 31, -19, 22, -14, 19, 0, 13, 10)
 
-[node name="BodySprite" type="Sprite2D" parent="Sprite"]
+[node name="Pivot" type="Node2D" parent="."]
+
+[node name="BodySprite" type="Sprite2D" parent="Pivot"]
 position = Vector2(0, 1)
 texture = ExtResource("3_kdnd6")
 region_rect = Rect2(0, 0, 48, 45)
 
-[node name="EyeSprite" type="Sprite2D" parent="Sprite/BodySprite"]
+[node name="EyeSprite" type="Sprite2D" parent="Pivot/BodySprite"]
 texture = ExtResource("4_i2mfa")
 
-[node name="WingSprite" type="Sprite2D" parent="Sprite"]
+[node name="WingSprite" type="Sprite2D" parent="Pivot"]
 position = Vector2(0, 1)
 texture = ExtResource("2_styte")
 
-[node name="BodyCollider" type="CollisionPolygon2D" parent="."]
-position = Vector2(3, 0)
-polygon = PackedVector2Array(4, 13, 11, 19, 1, 23, -4, 15, -11, 8, -31, 16, -30, 9, -4, -9, 4, -12, 12, -22, 28, -20, 19, -15, 16, 0, 8, 11)
+[node name="ClawArea" type="Area2D" parent="Pivot"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/ClawArea"]
+position = Vector2(6.52122, 20.2847)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_8tb87")
 
 [node name="BodyAnimations" type="AnimationPlayer" parent="."]
 libraries = {

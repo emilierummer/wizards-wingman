@@ -4,14 +4,10 @@ extends CharacterBody2D
 static var GRAVITY = ProjectSettings.get_setting("physics/2d/default_gravity")
 const GROUND_SPEED = 500
 const FLIGHT_SPEED = 1000
-@onready var INITIAL_SCALE = $BodyCollider.scale.x
 
 
 ## Onready Variables
-@onready var Sprite = $Sprite
-@onready var BodySprite = $Sprite/BodySprite
-@onready var EyeSprite = $Sprite/BodySprite/EyeSprite
-@onready var WingSprite = $Sprite/WingSprite
+@onready var Pivot = $Pivot
 @onready var BodyCollider = $BodyCollider
 
 
@@ -19,12 +15,10 @@ const FLIGHT_SPEED = 1000
 var flipped: bool :
 	set(value):
 		flipped = value
-		Sprite.flip_h = value
-		BodySprite.flip_h = value
-		EyeSprite.flip_h = value
-		WingSprite.flip_h = value
-		BodyCollider.scale.x = -INITIAL_SCALE if value else INITIAL_SCALE
-
+		var flip_dir = -1 if value else 1
+		if Pivot.scale.x != flip_dir:
+			BodyCollider.scale.x = flip_dir
+			Pivot.scale.x = flip_dir
 
 
 func _physics_process(delta): 

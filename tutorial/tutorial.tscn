@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=4 uid="uid://b1w7iwiappfhy"]
+[gd_scene load_steps=6 format=4 uid="uid://b1w7iwiappfhy"]
 
 [ext_resource type="PackedScene" uid="uid://bkx8cgllgvkhp" path="res://crow/crow.tscn" id="1_yjq53"]
 [ext_resource type="Texture2D" uid="uid://kdbs5q6wnnpp" path="res://tileset.png" id="2_dabc5"]
+[ext_resource type="PackedScene" uid="uid://by5pqri4s7r8x" path="res://interactables/heavy_item.tscn" id="3_5y87m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u66gv"]
 texture = ExtResource("2_dabc5")
@@ -46,5 +47,8 @@ tile_map_data = PackedByteArray("AAAAACMAAAABAAAAAAAAACQAAAABAAEAAAAAACUAAAABAAE
 tile_set = SubResource("TileSet_th4l8")
 
 [node name="Crow" parent="." instance=ExtResource("1_yjq53")]
-position = Vector2(169, 213)
+position = Vector2(94, 268)
 scale = Vector2(2, 2)
+
+[node name="HeavyItem" parent="." instance=ExtResource("3_5y87m")]
+position = Vector2(331, 301)
