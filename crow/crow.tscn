@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkx8cgllgvkhp"]
+
+[ext_resource type="Script" path="res://crow/crow.gd" id="1_dk3t8"]
+[ext_resource type="Texture2D" uid="uid://ciur8aia185ir" path="res://icon.svg" id="1_okwcd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dm0n4"]
+radius = 64.0078
+
+[node name="Crow" type="CharacterBody2D"]
+script = ExtResource("1_dk3t8")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_okwcd")
+
+[node name="BodyCollider" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_dm0n4")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
