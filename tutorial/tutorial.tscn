@@ -1,14 +1,15 @@
-[gd_scene load_steps=6 format=4 uid="uid://b1w7iwiappfhy"]
+[gd_scene load_steps=7 format=4 uid="uid://b1w7iwiappfhy"]
 
 [ext_resource type="PackedScene" uid="uid://bkx8cgllgvkhp" path="res://crow/crow.tscn" id="1_yjq53"]
 [ext_resource type="Texture2D" uid="uid://kdbs5q6wnnpp" path="res://tileset.png" id="2_dabc5"]
 [ext_resource type="PackedScene" uid="uid://by5pqri4s7r8x" path="res://interactables/heavy_item.tscn" id="3_5y87m"]
+[ext_resource type="PackedScene" uid="uid://clew0041u5icw" path="res://interactables/light_item.tscn" id="4_ur5m6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u66gv"]
 texture = ExtResource("2_dabc5")
 texture_region_size = Vector2i(9, 9)
 0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4.5, -4.5, 4.5, -4.5, 4.5, -2.47767, -2.41868, -2.41868, -2.41868, 4.5, -4.5, 4.5)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4.5, -4.5, 4.5, -4.5, 4.5, 4.5, -4.5, 4.5)
 1:0/0 = 0
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4.5, -4.5, 4.5, -4.5, 4.5, 4.5, -4.5, 4.5)
 2:0/0 = 0
@@ -16,8 +17,9 @@ texture_region_size = Vector2i(9, 9)
 3:0/0 = 0
 3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4.5, -4.5, 4.5, -4.5, 4.5, 4.5, -4.5, 4.5)
 4:0/0 = 0
-4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(4.5, -4.5, 4.5, 4.5, 2.47767, 4.5, 2.41868, -2.41868, -4.5, -2.41868, -4.5, -4.5)
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4.5, -4.5, 4.5, -4.5, 4.5, 4.5, -4.5, 4.5)
 4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4.5, -4.5, 4.5, -4.5, 4.5, 4.5, -4.5, 4.5)
 3:1/0 = 0
 3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4.5, -4.5, 4.5, -4.5, 4.5, 4.5, -4.5, 4.5)
 2:1/0 = 0
@@ -27,17 +29,18 @@ texture_region_size = Vector2i(9, 9)
 1:2/0 = 0
 1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4.5, -4.5, 4.5, -4.5, 4.5, 4.5, -4.5, 4.5)
 0:2/0 = 0
-0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4.5, 4.5, -4.5, -4.5, -2.47767, -4.5, -2.41868, 2.41868, 4.5, 2.41868, 4.5, 4.5)
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4.5, -4.5, 4.5, -4.5, 4.5, 4.5, -4.5, 4.5)
 3:2/0 = 0
 3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4.5, -4.5, 4.5, -4.5, 4.5, 4.5, -4.5, 4.5)
 2:2/0 = 0
 2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4.5, -4.5, 4.5, -4.5, 4.5, 4.5, -4.5, 4.5)
 4:2/0 = 0
-4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(4.5, 4.5, -4.5, 4.5, -4.5, 2.47767, 2.41868, 2.41868, 2.41868, -4.5, 4.5, -4.5)
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4.5, -4.5, 4.5, -4.5, 4.5, 4.5, -4.5, 4.5)
 
 [sub_resource type="TileSet" id="TileSet_th4l8"]
 tile_size = Vector2i(9, 9)
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 3
+physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_u66gv")
 
 [node name="Tutorial" type="Node2D"]
@@ -51,4 +54,7 @@ position = Vector2(94, 268)
 scale = Vector2(2, 2)
 
 [node name="HeavyItem" parent="." instance=ExtResource("3_5y87m")]
-position = Vector2(331, 301)
+position = Vector2(321, 286)
+
+[node name="LightItem" parent="." instance=ExtResource("4_ur5m6")]
+position = Vector2(447, 112)

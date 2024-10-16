@@ -2,16 +2,16 @@ extends CharacterBody2D
 
 ## Constants
 static var GRAVITY = ProjectSettings.get_setting("physics/2d/default_gravity")
-const GROUND_SPEED = 500
-const FLIGHT_SPEED = 1000
-
+const GROUND_SPEED = 200
+const FLIGHT_SPEED = 300
 
 ## Onready Variables
 @onready var Pivot = $Pivot
 @onready var BodyCollider = $BodyCollider
+@onready var ClawArea = $Pivot/ClawArea
+@onready var BeakArea = $Pivot/BeakArea
 
-
-## Complex Variables
+## Other Variables
 var flipped: bool :
 	set(value):
 		flipped = value
@@ -20,8 +20,23 @@ var flipped: bool :
 			BodyCollider.scale.x = flip_dir
 			Pivot.scale.x = flip_dir
 
+var claw_object: Node2D
+var beak_object: Node2D
 
-func _physics_process(delta): 
+var held_claws: HeavyItem :
+	set(item):
+		if item: item.pick_up(self.ClawArea)
+		else: held_claws.drop()
+		held_claws = item
+var held_beak: LightItem : 
+	set(item):
+		if item: item.pick_up(self.BeakArea)
+		else: held_beak.drop()
+		held_beak = item
+
+
+func _physics_process(delta):
+	############### MOVEMENT ###############
 	var speed = GROUND_SPEED if is_on_floor() else FLIGHT_SPEED
 	var direction = 0
 	
@@ -43,11 +58,37 @@ func _physics_process(delta):
 	
 	## Move
 	move_and_slide()
-
-
-func _process(delta):
-	## Actions
+	
+	############### ACTIONS ###############
 	if Input.is_action_just_pressed("Beak"):
-		print("beak")
+		if held_beak:
+			held_beak = null
+		elif beak_object:
+			held_beak = beak_object
 	if Input.is_action_just_pressed("Claws"):
-		print("claws")
+		if held_claws:
+			held_claws = null
+		elif claw_object:
+			held_claws = claw_object
+
+
+
+## Object Handling
+func _on_claw_area_entered(body):
+	if body is HeavyItem:
+		claw_object = body
+
+
+func _on_claw_area_exited(body):
+	if body == claw_object:
+		claw_object = null
+
+
+func _on_beak_area_entered(body):
+	if body is LightItem:
+		beak_object = body
+
+
+func _on_beak_area_exited(body):
+	if body == beak_object:
+		beak_object = null

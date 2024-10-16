@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dfvetcc6vg514" path="res://crow/sprite_sheets/crow_eye.png" id="4_i2mfa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8tb87"]
-size = Vector2(15.0424, 9.43062)
+size = Vector2(10.7606, 6.71531)
 
 [sub_resource type="Animation" id="Animation_uo5m5"]
 length = 0.001
@@ -128,10 +128,18 @@ texture = ExtResource("4_i2mfa")
 position = Vector2(0, 1)
 texture = ExtResource("2_styte")
 
+[node name="BeakArea" type="Area2D" parent="Pivot"]
+position = Vector2(25, -18)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pivot/BeakArea"]
+position = Vector2(-26, 18)
+polygon = PackedVector2Array(21, -20, 22, -13, 37, -18, 28, -21)
+
 [node name="ClawArea" type="Area2D" parent="Pivot"]
+position = Vector2(9, 22)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/ClawArea"]
-position = Vector2(6.52122, 20.2847)
+position = Vector2(-0.619696, 0)
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_8tb87")
 
@@ -148,3 +156,7 @@ libraries = {
 autoplay = "blink"
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="body_entered" from="Pivot/BeakArea" to="." method="_on_beak_area_entered"]
+[connection signal="body_exited" from="Pivot/BeakArea" to="." method="_on_beak_area_exited"]
+[connection signal="body_entered" from="Pivot/ClawArea" to="." method="_on_claw_area_entered"]
+[connection signal="body_exited" from="Pivot/ClawArea" to="." method="_on_claw_area_exited"]
