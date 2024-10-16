@@ -1,18 +1,142 @@
-[gd_scene load_steps=4 format=3 uid="uid://bkx8cgllgvkhp"]
+[gd_scene load_steps=11 format=3 uid="uid://bkx8cgllgvkhp"]
 
 [ext_resource type="Script" path="res://crow/crow.gd" id="1_dk3t8"]
-[ext_resource type="Texture2D" uid="uid://ciur8aia185ir" path="res://icon.svg" id="1_okwcd"]
+[ext_resource type="Texture2D" uid="uid://c7fahpdx4ubet" path="res://crow/sprite_sheets/crow_wing.png" id="2_styte"]
+[ext_resource type="Texture2D" uid="uid://cscwk38e08os6" path="res://crow/sprite_sheets/crow_body.png" id="3_kdnd6"]
+[ext_resource type="Texture2D" uid="uid://dfvetcc6vg514" path="res://crow/sprite_sheets/crow_eye.png" id="4_i2mfa"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_dm0n4"]
-radius = 64.0078
+[sub_resource type="Animation" id="Animation_ujy7g"]
+resource_name = "idle"
+length = 2.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite/BodySprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(0, 1), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite/WingSprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(0, 1), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_uo5m5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite/BodySprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(-20, -21.0877)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite/WingSprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(-32, -11)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8j0bv"]
+_data = {
+"RESET": SubResource("Animation_uo5m5"),
+"idle": SubResource("Animation_ujy7g")
+}
+
+[sub_resource type="Animation" id="Animation_ocfbr"]
+resource_name = "blink"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite/BodySprite/EyeSprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_eimrb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite/BodySprite/EyeSprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_37a4e"]
+_data = {
+"RESET": SubResource("Animation_eimrb"),
+"blink": SubResource("Animation_ocfbr")
+}
 
 [node name="Crow" type="CharacterBody2D"]
 script = ExtResource("1_dk3t8")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-texture = ExtResource("1_okwcd")
 
-[node name="BodyCollider" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_dm0n4")
+[node name="BodySprite" type="Sprite2D" parent="Sprite"]
+position = Vector2(-20, -21.0877)
+texture = ExtResource("3_kdnd6")
+region_rect = Rect2(0, 0, 48, 45)
+
+[node name="EyeSprite" type="Sprite2D" parent="Sprite/BodySprite"]
+texture = ExtResource("4_i2mfa")
+
+[node name="WingSprite" type="Sprite2D" parent="Sprite"]
+position = Vector2(-32, -11)
+texture = ExtResource("2_styte")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+position = Vector2(3, 0)
+polygon = PackedVector2Array(4, 13, 11, 19, 1, 23, -4, 15, -11, 8, -31, 16, -30, 9, -4, -9, 4, -12, 12, -22, 28, -20, 19, -15, 16, 0, 8, 11)
+
+[node name="BodyAnimations" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8j0bv")
+}
+autoplay = "idle"
+
+[node name="EyeAnimations" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_37a4e")
+}
+autoplay = "blink"
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

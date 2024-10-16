@@ -46,4 +46,5 @@ tile_map_data = PackedByteArray("AAABAEMAAAACAAAAAAACAEMAAAACAAAAAAADAEMAAAACAAA
 tile_set = SubResource("TileSet_th4l8")
 
 [node name="Crow" parent="." instance=ExtResource("1_yjq53")]
-position = Vector2(450, 308)
+position = Vector2(365, 554)
+scale = Vector2(2, 2)
