@@ -8,8 +8,11 @@ const FLIGHT_SPEED = 300
 ## Onready Variables
 @onready var Pivot = $Pivot
 @onready var BodyCollider = $BodyCollider
+
 @onready var ClawArea = $Pivot/ClawArea
 @onready var BeakArea = $Pivot/BeakArea
+@onready var BeakFloorArea = $Pivot/BeakFloorArea
+
 @onready var HeldItemCollider = $HeldItemCollisionShape
 @onready var initial_held_item_position = HeldItemCollider.position
 
@@ -26,6 +29,7 @@ var flipped: bool :
 
 var claw_object: Node2D
 var beak_object: Node2D
+var beak_floor_object: Node2D
 
 var held_claws: HeavyItem :
 	set(item):
@@ -75,6 +79,8 @@ func _physics_process(delta):
 			held_beak = null
 		elif beak_object:
 			held_beak = beak_object
+		elif beak_floor_object:
+			held_beak = beak_floor_object
 	if Input.is_action_just_pressed("Claws"):
 		if held_claws:
 			held_claws = null
@@ -102,3 +108,13 @@ func _on_beak_area_entered(body):
 func _on_beak_area_exited(body):
 	if body == beak_object:
 		beak_object = null
+
+
+func _on_beak_floor_area_entered(body):
+	if body is LightItem: 
+		beak_floor_object = body
+
+
+func _on_beak_floor_area_exited(body):
+	if body == beak_floor_object:
+		beak_floor_object = null

@@ -14,6 +14,7 @@ var held_by: Node2D :
 
 func pick_up(picked_up_by):
 	held_by = picked_up_by
+	rotation = 0
 
 
 func drop():

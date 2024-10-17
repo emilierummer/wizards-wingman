@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bkx8cgllgvkhp"]
+[gd_scene load_steps=14 format=3 uid="uid://bkx8cgllgvkhp"]
 
 [ext_resource type="Script" path="res://crow/crow.gd" id="1_dk3t8"]
 [ext_resource type="Texture2D" uid="uid://c7fahpdx4ubet" path="res://crow/sprite_sheets/crow_wing.png" id="2_styte"]
@@ -7,6 +7,9 @@
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_ky3y8"]
 b = Vector2(0, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_67sh8"]
+size = Vector2(24, 3)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8tb87"]
 size = Vector2(10.7606, 6.71531)
@@ -115,11 +118,13 @@ _data = {
 script = ExtResource("1_dk3t8")
 
 [node name="HeldItemCollisionShape" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(9, 22)
 shape = SubResource("SegmentShape2D_ky3y8")
 debug_color = Color(0.89213, 0.156909, 0.69394, 0.42)
 
 [node name="BodyCollider" type="CollisionPolygon2D" parent="."]
+visible = false
 polygon = PackedVector2Array(8, 12, 14, 21, 4, 24, -4, 15, -7, 10, -31, 18, -29, 11, -4, -7, 7, -12, 15, -21, 31, -19, 22, -14, 19, 0, 13, 10)
 
 [node name="Pivot" type="Node2D" parent="."]
@@ -137,13 +142,22 @@ position = Vector2(0, 1)
 texture = ExtResource("2_styte")
 
 [node name="BeakArea" type="Area2D" parent="Pivot"]
+visible = false
 position = Vector2(25, -18)
 
 [node name="BeakCollisionShape" type="CollisionPolygon2D" parent="Pivot/BeakArea"]
 position = Vector2(-26, 18)
 polygon = PackedVector2Array(21, -20, 22, -13, 37, -18, 28, -21)
 
+[node name="BeakFloorArea" type="Area2D" parent="Pivot"]
+visible = false
+
+[node name="BeakFloorCollisionShape" type="CollisionShape2D" parent="Pivot/BeakFloorArea"]
+position = Vector2(26, 24)
+shape = SubResource("RectangleShape2D_67sh8")
+
 [node name="ClawArea" type="Area2D" parent="Pivot"]
+visible = false
 position = Vector2(9, 22)
 
 [node name="ClawCollisionShape" type="CollisionShape2D" parent="Pivot/ClawArea"]
@@ -165,5 +179,7 @@ autoplay = "blink"
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="body_entered" from="Pivot/BeakArea" to="." method="_on_beak_area_entered"]
 [connection signal="body_exited" from="Pivot/BeakArea" to="." method="_on_beak_area_exited"]
+[connection signal="body_entered" from="Pivot/BeakFloorArea" to="." method="_on_beak_floor_area_entered"]
+[connection signal="body_exited" from="Pivot/BeakFloorArea" to="." method="_on_beak_floor_area_exited"]
 [connection signal="body_entered" from="Pivot/ClawArea" to="." method="_on_claw_area_entered"]
 [connection signal="body_exited" from="Pivot/ClawArea" to="." method="_on_claw_area_exited"]
