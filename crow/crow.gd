@@ -11,6 +11,7 @@ const FLIGHT_SPEED = 300
 @onready var ClawArea = $Pivot/ClawArea
 @onready var BeakArea = $Pivot/BeakArea
 @onready var HeldItemCollider = $HeldItemCollisionShape
+@onready var initial_held_item_position = HeldItemCollider.position
 
 ## Other Variables
 var flipped: bool :
@@ -19,8 +20,9 @@ var flipped: bool :
 		var flip_dir = -1 if value else 1
 		if Pivot.scale.x != flip_dir:
 			BodyCollider.scale.x = flip_dir
-			HeldItemCollider.scale.x = flip_dir / self.scale.x
 			Pivot.scale.x = flip_dir
+			HeldItemCollider.scale.x = flip_dir / self.scale.x
+			if (HeldItemCollider.position.x < 0) != (flip_dir < 0): HeldItemCollider.position.x *= -1
 
 var claw_object: Node2D
 var beak_object: Node2D
@@ -30,8 +32,8 @@ var held_claws: HeavyItem :
 		if item: 
 			item.pick_up(self.ClawArea)
 			HeldItemCollider.shape = item.Collider.shape
+			HeldItemCollider.position.y = item.Collider.position.y / self.scale.y + initial_held_item_position.y
 			HeldItemCollider.scale = Vector2(1, 1) / self.scale
-			HeldItemCollider.global_position = item.Collider.global_position
 		else: 
 			held_claws.drop()
 			HeldItemCollider.shape = null

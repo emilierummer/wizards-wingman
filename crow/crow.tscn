@@ -148,7 +148,6 @@ position = Vector2(9, 22)
 
 [node name="ClawCollisionShape" type="CollisionShape2D" parent="Pivot/ClawArea"]
 position = Vector2(-0.619696, 0)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_8tb87")
 
 [node name="BodyAnimations" type="AnimationPlayer" parent="."]
