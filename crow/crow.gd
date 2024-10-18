@@ -35,12 +35,12 @@ var held_claws: HeavyItem :
 	set(item):
 		if item: 
 			item.pick_up(self.ClawArea)
-			HeldItemCollider.shape = item.Collider.shape
+			HeldItemCollider.polygon = item.Collider.polygon
 			HeldItemCollider.position.y = item.Collider.position.y / self.scale.y + initial_held_item_position.y
 			HeldItemCollider.scale = Vector2(1, 1) / self.scale
 		else: 
 			held_claws.drop()
-			HeldItemCollider.shape = null
+			HeldItemCollider.polygon = PackedVector2Array()
 		held_claws = item
 var held_beak: LightItem : 
 	set(item):

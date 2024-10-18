@@ -1,12 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://bkx8cgllgvkhp"]
+[gd_scene load_steps=13 format=3 uid="uid://bkx8cgllgvkhp"]
 
 [ext_resource type="Script" path="res://crow/crow.gd" id="1_dk3t8"]
 [ext_resource type="Texture2D" uid="uid://c7fahpdx4ubet" path="res://crow/sprite_sheets/crow_wing.png" id="2_styte"]
 [ext_resource type="Texture2D" uid="uid://cscwk38e08os6" path="res://crow/sprite_sheets/crow_body.png" id="3_kdnd6"]
 [ext_resource type="Texture2D" uid="uid://dfvetcc6vg514" path="res://crow/sprite_sheets/crow_eye.png" id="4_i2mfa"]
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_ky3y8"]
-b = Vector2(0, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_67sh8"]
 size = Vector2(24, 3)
@@ -117,11 +114,9 @@ _data = {
 [node name="Crow" type="CharacterBody2D"]
 script = ExtResource("1_dk3t8")
 
-[node name="HeldItemCollisionShape" type="CollisionShape2D" parent="."]
+[node name="HeldItemCollisionShape" type="CollisionPolygon2D" parent="."]
 visible = false
 position = Vector2(9, 22)
-shape = SubResource("SegmentShape2D_ky3y8")
-debug_color = Color(0.89213, 0.156909, 0.69394, 0.42)
 
 [node name="BodyCollider" type="CollisionPolygon2D" parent="."]
 visible = false
