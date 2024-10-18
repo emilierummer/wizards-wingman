@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0ohh7w3ak5t"]
+
+[ext_resource type="PackedScene" uid="uid://clew0041u5icw" path="res://interactables/light_item.tscn" id="1_y7w7i"]
+[ext_resource type="Texture2D" uid="uid://g616bjbg8dn8" path="res://tutorial/ring.png" id="2_s8lj4"]
+
+[node name="Ring" instance=ExtResource("1_y7w7i")]
+
+[node name="Sprite" parent="." index="0"]
+position = Vector2(0, 9)
+scale = Vector2(0.5625, 0.5625)
+texture = ExtResource("2_s8lj4")
+
+[node name="Collider" parent="." index="1"]
+position = Vector2(0, 9)
+scale = Vector2(0.564516, 0.564516)
+polygon = PackedVector2Array(0, -15.5, -11, -11.5, -16, -0.5, -11, 11.5, 0, 15.5, 12, 10.5, 15, 0.5, 12, -9.5)
