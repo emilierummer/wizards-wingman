@@ -22,26 +22,26 @@ func _on_outer_room_area_entered(body):
 	if body is CharacterBody2D:
 		tween_rooms(OuterRoom, InnerRoom, 320)
 	elif body == Necklace and not holding_necklace:
-		Necklace.reparent(OuterRoom)
+		Necklace.call_deferred("reparent", OuterRoom)
 
 
 func _on_inner_room_area_entered(body):
 	if body is CharacterBody2D and door_open:
 		tween_rooms(InnerRoom, OuterRoom, 500)
 	elif body == Necklace and not holding_necklace:
-		Necklace.reparent(InnerRoom)
+		Necklace.call_deferred("reparent", InnerRoom)
 
 
-func tween_rooms(show:Node, hide:Node, cameraOffset:float):
+func tween_rooms(show_room:Node, hidden_room:Node, cameraOffset:float):
 	var tween = get_tree().create_tween()
-	visible_room = show
+	visible_room = show_room
 	
 	tween.tween_property(Camera, "offset:x", cameraOffset, ROOM_TRANSITION_SPEED)
-	tween.parallel().tween_property(hide, "modulate", Color.TRANSPARENT, ROOM_TRANSITION_SPEED)
-	tween.parallel().tween_property(show, "visible", true, 0)
+	tween.parallel().tween_property(hidden_room, "modulate", Color.TRANSPARENT, ROOM_TRANSITION_SPEED)
+	tween.parallel().tween_property(show_room, "visible", true, 0)
 	
-	tween.tween_property(hide, "visible", false, 0)
-	tween.parallel().tween_property(hide, "modulate", Color.WHITE, 0)
+	tween.tween_property(hidden_room, "visible", false, 0)
+	tween.parallel().tween_property(hidden_room, "modulate", Color.WHITE, 0)
 
 
 func _on_necklace_picked_up():
