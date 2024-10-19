@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bhqyowts1ifxj"
-path="res://.godot/imported/point_light.png-dfa32c570dc544e20cb9ffefc77a9cbb.ctex"
+path="res://.godot/imported/point_light.png-ecc73906cba1b27268072e4ee783739b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://interactables/lamp/point_light.png"
-dest_files=["res://.godot/imported/point_light.png-dfa32c570dc544e20cb9ffefc77a9cbb.ctex"]
+source_file="res://point_light.png"
+dest_files=["res://.godot/imported/point_light.png-ecc73906cba1b27268072e4ee783739b.ctex"]
 
 [params]
 
