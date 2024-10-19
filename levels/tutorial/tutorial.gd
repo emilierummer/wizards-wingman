@@ -11,6 +11,8 @@ signal level_completed
 @onready var GetRingSpeech = $Tutorial/GetRingSpeech
 @onready var GetGoldSpeech = $Tutorial/GetGoldSpeech
 
+@onready var ExitPortal = $ExitPortal
+
 var ring_in_potion = false
 
 
@@ -18,6 +20,7 @@ var ring_in_potion = false
 func _ready():
 	MoveLabel.visible = true
 	BringLampSpeech.visible = true
+	ExitPortal.visible = false
 
 func _on_left_perch(body):
 	if not body is CharacterBody2D: return
@@ -50,6 +53,7 @@ func _on_ring_put_in_cauldron(body):
 	ring_in_potion = true
 	GetRingSpeech.visible = false
 	GetGoldSpeech.visible = true
+	ExitPortal.visible = true
 
 
 ## 5. Go through portal
