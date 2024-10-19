@@ -15,9 +15,9 @@ func _ready():
 	TutorialScene.connect("level_completed", _on_tutorial_completed)
 	
 	## Spawn Tutorial
-	add_child(TutorialScene)
+	call_deferred("add_child", TutorialScene)
 
 
 func _on_tutorial_completed():
-	remove_child(TutorialScene)
-	add_child(HouseScene)
+	call_deferred("remove_child", TutorialScene)
+	call_deferred("add_child", HouseScene)

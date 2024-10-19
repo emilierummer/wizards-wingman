@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6ot6mphiorrw"
-path="res://.godot/imported/tutorial_background.png-55aa21726cb838c0d67280845056a135.ctex"
+uid="uid://dnpgxl2ugwsst"
+path="res://.godot/imported/hanging_plants.png-a0bc6114e85f740ede600df41ad39396.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://levels/tutorial/tutorial_background.png"
-dest_files=["res://.godot/imported/tutorial_background.png-55aa21726cb838c0d67280845056a135.ctex"]
+source_file="res://levels/tower/hanging_plants.png"
+dest_files=["res://.godot/imported/hanging_plants.png-a0bc6114e85f740ede600df41ad39396.ctex"]
 
 [params]
 

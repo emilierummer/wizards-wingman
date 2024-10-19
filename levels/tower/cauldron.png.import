@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnpgxl2ugwsst"
-path="res://.godot/imported/hanging_plants.png-349158a0461596259bd08241855851b8.ctex"
+uid="uid://lk8jcciwtxqr"
+path="res://.godot/imported/cauldron.png-fce55c1767c9f5072d59da572b808c6d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://levels/tutorial/hanging_plants.png"
-dest_files=["res://.godot/imported/hanging_plants.png-349158a0461596259bd08241855851b8.ctex"]
+source_file="res://levels/tower/cauldron.png"
+dest_files=["res://.godot/imported/cauldron.png-fce55c1767c9f5072d59da572b808c6d.ctex"]
 
 [params]
 

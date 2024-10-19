@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lk8jcciwtxqr"
-path="res://.godot/imported/cauldron.png-c535e29af979bb753a9153a6c27eaba2.ctex"
+uid="uid://c4ucnfnst0qgm"
+path="res://.godot/imported/lamp_chain.png-7236dc4c0efbd7d4891b7b8cfa47b0a1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://levels/tutorial/cauldron.png"
-dest_files=["res://.godot/imported/cauldron.png-c535e29af979bb753a9153a6c27eaba2.ctex"]
+source_file="res://levels/tower/lamp_chain.png"
+dest_files=["res://.godot/imported/lamp_chain.png-7236dc4c0efbd7d4891b7b8cfa47b0a1.ctex"]
 
 [params]
 
