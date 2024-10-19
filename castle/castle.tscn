@@ -53,7 +53,7 @@ position = Vector2(320, 0)
 shape = SubResource("WorldBoundaryShape2D_o02lk")
 
 [node name="Crow" parent="." instance=ExtResource("2_1x20d")]
-position = Vector2(27, 233)
+position = Vector2(22, 344)
 scale = Vector2(0.5, 0.5)
 
 [node name="CollisionTilemap" type="TileMapLayer" parent="."]
@@ -65,4 +65,7 @@ tile_set = ExtResource("1_0yt3h")
 position = Vector2(572, 40)
 
 [node name="Lamp" parent="." instance=ExtResource("4_preso")]
-position = Vector2(33, 331)
+position = Vector2(52, 331)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.0562916, 0.0562916, 0.0562916, 1)

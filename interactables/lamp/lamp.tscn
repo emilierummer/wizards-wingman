@@ -1,7 +1,46 @@
-[gd_scene load_steps=3 format=3 uid="uid://bk0rewm1revtk"]
+[gd_scene load_steps=7 format=3 uid="uid://bk0rewm1revtk"]
 
 [ext_resource type="PackedScene" uid="uid://by5pqri4s7r8x" path="res://interactables/heavy_item.tscn" id="1_mw1ow"]
 [ext_resource type="Texture2D" uid="uid://dsnn163srj2qf" path="res://interactables/lamp/lamp.png" id="2_xc28f"]
+[ext_resource type="Texture2D" uid="uid://bhqyowts1ifxj" path="res://interactables/lamp/point_light.png" id="3_4n678"]
+
+[sub_resource type="Animation" id="Animation_yrpmr"]
+resource_name = "flame"
+length = 2.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.5]
+}
+
+[sub_resource type="Animation" id="Animation_ck3em"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7d7l3"]
+_data = {
+"RESET": SubResource("Animation_ck3em"),
+"flame": SubResource("Animation_yrpmr")
+}
 
 [node name="Lamp" instance=ExtResource("1_mw1ow")]
 
@@ -10,4 +49,18 @@ position = Vector2(-0.5, 15)
 texture = ExtResource("2_xc28f")
 
 [node name="Collider" parent="." index="1"]
+visible = false
 polygon = PackedVector2Array(-3, -12, 0, -14, 3, -12, 6, 10, 4, 15, -4, 15, -6, 10)
+
+[node name="PointLight2D" type="PointLight2D" parent="." index="2"]
+color = Color(1, 0.784314, 0.345098, 1)
+shadow_enabled = true
+shadow_item_cull_mask = 3
+texture = ExtResource("3_4n678")
+offset = Vector2(0, 18)
+
+[node name="Animations" type="AnimationPlayer" parent="." index="3"]
+libraries = {
+"": SubResource("AnimationLibrary_7d7l3")
+}
+autoplay = "flame"
