@@ -8,6 +8,7 @@ const FLIGHT_SPEED = 300
 ## Onready Variables
 @onready var Pivot = $Pivot
 @onready var BodyCollider = $BodyCollider
+@onready var BodyAnimator = $BodyAnimations
 
 @onready var ClawArea = $Pivot/ClawArea
 @onready var BeakArea = $Pivot/BeakArea
@@ -49,6 +50,17 @@ var held_beak: LightItem :
 		held_beak = item
 
 
+#func _process(_delta):
+	#if is_on_floor():
+		#print("playing idle")
+		#BodyAnimator.clear_queue()
+		#BodyAnimator.play("idle")
+	#else:
+		#print("playing flap_wings")
+		#BodyAnimator.clear_queue()
+		#BodyAnimator.play("flap_wings")
+
+
 func _physics_process(delta):
 	############### MOVEMENT ###############
 	var speed = GROUND_SPEED if is_on_floor() else FLIGHT_SPEED
@@ -66,6 +78,7 @@ func _physics_process(delta):
 	## Fly
 	if Input.is_action_pressed("MoveUp"):
 		velocity.y = -speed
+		BodyAnimator.play("flap_wings")
 	
 	## Gravity
 	velocity.y += GRAVITY * delta # apply gravity
@@ -73,7 +86,7 @@ func _physics_process(delta):
 	## Move
 	move_and_slide()
 	
-	############### ACTIONS ###############
+	################ ACTIONS ###############
 	if Input.is_action_just_pressed("Beak"):
 		if held_beak:
 			held_beak = null
@@ -86,6 +99,13 @@ func _physics_process(delta):
 			held_claws = null
 		elif claw_object:
 			held_claws = claw_object
+	
+	############## ANIMATIONS ##############
+	if is_on_floor():
+		if BodyAnimator.current_animation == "flap_wings":
+			BodyAnimator.stop()
+			BodyAnimator.queue("RESET")
+			BodyAnimator.queue("idle")
 
 
 

@@ -1,9 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://bkx8cgllgvkhp"]
+[gd_scene load_steps=16 format=3 uid="uid://bkx8cgllgvkhp"]
 
 [ext_resource type="Script" path="res://crow/crow.gd" id="1_dk3t8"]
 [ext_resource type="Texture2D" uid="uid://c7fahpdx4ubet" path="res://crow/sprite_sheets/crow_wing.png" id="2_styte"]
 [ext_resource type="Texture2D" uid="uid://cscwk38e08os6" path="res://crow/sprite_sheets/crow_body.png" id="3_kdnd6"]
 [ext_resource type="Texture2D" uid="uid://dfvetcc6vg514" path="res://crow/sprite_sheets/crow_eye.png" id="4_i2mfa"]
+[ext_resource type="Texture2D" uid="uid://bcyvtff8m5mbj" path="res://crow/sprite_sheets/crow_flying_wings_up.png" id="5_kj565"]
+[ext_resource type="Texture2D" uid="uid://cbp78jyuwfqvx" path="res://crow/sprite_sheets/crow_flying_wings_down.png" id="6_75ln5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_67sh8"]
 size = Vector2(24, 3)
@@ -36,6 +38,167 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [Vector2(0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot/BodySprite:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_kdnd6")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pivot/WingSprite:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Pivot/BodySprite/EyeSprite:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BodyCollider:polygon")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(8, 12, 14, 21, 4, 24, -4, 15, -7, 10, -31, 18, -29, 11, -4, -7, 7, -12, 15, -21, 31, -19, 22, -14, 19, 0, 13, 10)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Pivot/BeakArea/BeakCollisionShape:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-26, 17)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("BodyCollider:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 4)]
+}
+
+[sub_resource type="Animation" id="Animation_hxucm"]
+resource_name = "flap_wings"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/WingSprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/BodySprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("5_kj565"), ExtResource("6_75ln5"), ExtResource("5_kj565")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot/BodySprite/EyeSprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(0, 29), Vector2(0, 10), Vector2(0, 29)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BodyCollider:polygon")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [PackedVector2Array(15, 12, 5, 15, -3, 5, -17, 1, -34, 4, -35, 0, -13, -10, 7, -10, 18, -9, 28, -4, 18, -2, 9, 4)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Pivot/BodySprite:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(-4, -8), Vector2(-4, 11), Vector2(-4, -8)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Pivot/BeakArea/BeakCollisionShape:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-30, 38)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("BodyCollider:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 12)]
 }
 
 [sub_resource type="Animation" id="Animation_ujy7g"]
@@ -70,6 +233,7 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8j0bv"]
 _data = {
 "RESET": SubResource("Animation_uo5m5"),
+"flap_wings": SubResource("Animation_hxucm"),
 "idle": SubResource("Animation_ujy7g")
 }
 
@@ -115,14 +279,14 @@ _data = {
 script = ExtResource("1_dk3t8")
 
 [node name="HeldItemCollisionShape" type="CollisionPolygon2D" parent="."]
-visible = false
 position = Vector2(9, 22)
 
 [node name="BodyCollider" type="CollisionPolygon2D" parent="."]
-visible = false
+position = Vector2(0, 4)
 polygon = PackedVector2Array(8, 12, 14, 21, 4, 24, -4, 15, -7, 10, -31, 18, -29, 11, -4, -7, 7, -12, 15, -21, 31, -19, 22, -14, 19, 0, 13, 10)
 
 [node name="Pivot" type="Node2D" parent="."]
+position = Vector2(0, 4)
 
 [node name="BodySprite" type="Sprite2D" parent="Pivot"]
 position = Vector2(0, 1)
@@ -137,22 +301,19 @@ position = Vector2(0, 1)
 texture = ExtResource("2_styte")
 
 [node name="BeakArea" type="Area2D" parent="Pivot"]
-visible = false
 position = Vector2(25, -18)
 
 [node name="BeakCollisionShape" type="CollisionPolygon2D" parent="Pivot/BeakArea"]
-position = Vector2(-26, 18)
-polygon = PackedVector2Array(21, -20, 22, -13, 37, -18, 28, -21)
+position = Vector2(-26, 17)
+polygon = PackedVector2Array(22, -21, 22, -13, 38, -17)
 
 [node name="BeakFloorArea" type="Area2D" parent="Pivot"]
-visible = false
 
 [node name="BeakFloorCollisionShape" type="CollisionShape2D" parent="Pivot/BeakFloorArea"]
 position = Vector2(26, 24)
 shape = SubResource("RectangleShape2D_67sh8")
 
 [node name="ClawArea" type="Area2D" parent="Pivot"]
-visible = false
 position = Vector2(9, 22)
 
 [node name="ClawCollisionShape" type="CollisionShape2D" parent="Pivot/ClawArea"]
