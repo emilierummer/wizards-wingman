@@ -13,7 +13,9 @@ config_version=5
 config/name="Wizard's Wingman"
 run/main_scene="res://tutorial/tutorial.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://icon/64x64.png"
+config/macos_native_icon="res://icon/128x128.icns"
+config/windows_native_icon="res://icon/windows/64x64.ico"
 
 [display]
 
