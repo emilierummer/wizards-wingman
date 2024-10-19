@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cbp78jyuwfqvx" path="res://crow/sprite_sheets/crow_flying_wings_down.png" id="6_75ln5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_67sh8"]
-size = Vector2(24, 3)
+size = Vector2(24, 7.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8tb87"]
 size = Vector2(10.7606, 6.71531)
@@ -310,7 +310,7 @@ polygon = PackedVector2Array(22, -21, 22, -13, 38, -17)
 [node name="BeakFloorArea" type="Area2D" parent="Pivot"]
 
 [node name="BeakFloorCollisionShape" type="CollisionShape2D" parent="Pivot/BeakFloorArea"]
-position = Vector2(26, 24)
+position = Vector2(26, 21.75)
 shape = SubResource("RectangleShape2D_67sh8")
 
 [node name="ClawArea" type="Area2D" parent="Pivot"]
