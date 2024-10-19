@@ -18,6 +18,7 @@ const FLIGHT_SPEED = 300
 @onready var initial_held_item_position = HeldItemCollider.position
 
 ## Other Variables
+@export var disabled: bool = false
 var flipped: bool :
 	set(value):
 		flipped = value
@@ -62,6 +63,7 @@ var held_beak: LightItem :
 
 
 func _physics_process(delta):
+	if disabled: return
 	############### MOVEMENT ###############
 	var speed = GROUND_SPEED if is_on_floor() else FLIGHT_SPEED
 	var direction = 0
