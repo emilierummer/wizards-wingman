@@ -52,12 +52,6 @@ position = Vector2(55, 94)
 
 [node name="LeftStand" type="Node2D" parent="."]
 
-[node name="Counter" type="StaticBody2D" parent="LeftStand"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftStand/Counter"]
-position = Vector2(114, 308)
-shape = SubResource("RectangleShape2D_epqkh")
-
 [node name="Roof" type="StaticBody2D" parent="LeftStand"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LeftStand/Roof"]
