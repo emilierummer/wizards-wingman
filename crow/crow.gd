@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 ## Constants
-static var GRAVITY = ProjectSettings.get_setting("physics/2d/default_gravity")
+static var GRAVITY = ProjectSettings.get_setting("physics/2d/default_gravity") * 0.75
 const GROUND_SPEED = 200
 const FLIGHT_SPEED = 300
 
