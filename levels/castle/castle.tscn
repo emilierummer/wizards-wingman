@@ -1,9 +1,12 @@
-[gd_scene load_steps=9 format=4 uid="uid://d0t11sl8vx30r"]
+[gd_scene load_steps=12 format=4 uid="uid://d0t11sl8vx30r"]
 
 [ext_resource type="TileSet" uid="uid://d4c5n8jeufv3n" path="res://levels/castle/brick_tiles.tres" id="1_0yt3h"]
+[ext_resource type="Script" path="res://levels/castle/castle.gd" id="1_wsy57"]
 [ext_resource type="PackedScene" uid="uid://bkx8cgllgvkhp" path="res://crow/crow.tscn" id="2_1x20d"]
+[ext_resource type="PackedScene" uid="uid://bltyn21ba7e66" path="res://shared/portal/portal.tscn" id="2_ob1ar"]
 [ext_resource type="PackedScene" uid="uid://bh0bks5v88sw3" path="res://interactables/gold_objects/chalice/chalice.tscn" id="3_3q48p"]
 [ext_resource type="PackedScene" uid="uid://bk0rewm1revtk" path="res://interactables/lamp/lamp.tscn" id="4_preso"]
+[ext_resource type="Texture2D" uid="uid://bhqyowts1ifxj" path="res://shared/point_light.png" id="5_1ql1k"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1js3q"]
 normal = Vector2(1, 0)
@@ -19,6 +22,7 @@ normal = Vector2(0, 1)
 distance = -360.0
 
 [node name="Castle" type="Node2D"]
+script = ExtResource("1_wsy57")
 
 [node name="BackgroundTilemap" type="TileMapLayer" parent="."]
 position = Vector2(0, -23)
@@ -52,9 +56,24 @@ shape = SubResource("WorldBoundaryShape2D_u83xd")
 position = Vector2(320, 0)
 shape = SubResource("WorldBoundaryShape2D_o02lk")
 
+[node name="EntryPortal" parent="." instance=ExtResource("2_ob1ar")]
+position = Vector2(14, 329)
+
+[node name="ExitPortal" parent="." instance=ExtResource("2_ob1ar")]
+position = Vector2(13, 227)
+start_showing = false
+
 [node name="Crow" parent="." instance=ExtResource("2_1x20d")]
-position = Vector2(22, 344)
+z_index = 1
+position = Vector2(14, 328)
 scale = Vector2(0.5, 0.5)
+
+[node name="PointLight2D" type="PointLight2D" parent="Crow"]
+z_index = 1
+energy = 0.5
+range_z_min = 1
+range_z_max = 1
+texture = ExtResource("5_1ql1k")
 
 [node name="CollisionTilemap" type="TileMapLayer" parent="."]
 position = Vector2(4, 1)
@@ -69,3 +88,6 @@ position = Vector2(52, 331)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0, 0, 0, 1)
+
+[connection signal="crow_went_through_portal" from="ExitPortal" to="." method="_on_crow_went_through_exit_portal"]
+[connection signal="picked_up" from="Chalice" to="." method="_on_chalice_picked_up"]

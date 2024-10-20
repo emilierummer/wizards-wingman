@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bltyn21ba7e66"]
+[gd_scene load_steps=6 format=3 uid="uid://bltyn21ba7e66"]
 
 [ext_resource type="Script" path="res://shared/portal/portal.gd" id="1_607qm"]
 [ext_resource type="SpriteFrames" uid="uid://2gsxipf8ta6m" path="res://shared/portal/portal_animation_frames.tres" id="2_wqqmh"]
+[ext_resource type="Texture2D" uid="uid://bhqyowts1ifxj" path="res://shared/point_light.png" id="3_lkeih"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8oifk"]
 load_path = "res://.godot/imported/portal.png-25c6d0ac85167c209571696dc8bf41e3.ctex"
@@ -25,6 +26,14 @@ autoplay = "default"
 frame_progress = 0.19604
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CapsuleShape2D_ownoc")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.658599, 0.217699, 1, 1)
+energy = 0.5
+shadow_enabled = true
+shadow_item_cull_mask = 3
+texture = ExtResource("3_lkeih")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered_portal"]
