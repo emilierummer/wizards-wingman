@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bh0bks5v88sw3"]
 
 [ext_resource type="PackedScene" uid="uid://by5pqri4s7r8x" path="res://interactables/heavy_item.tscn" id="1_cwueo"]
-[ext_resource type="Texture2D" uid="uid://oclou2nae4ps" path="res://levels/castle/chalice.png" id="2_6lbba"]
+[ext_resource type="Texture2D" uid="uid://oclou2nae4ps" path="res://interactables/gold_objects/chalice/chalice.png" id="2_6lbba"]
 
 [node name="Chalice" instance=ExtResource("1_cwueo")]
 

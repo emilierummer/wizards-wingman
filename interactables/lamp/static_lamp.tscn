@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://coxmrk4lomaqj"]
 
-[ext_resource type="Texture2D" uid="uid://dsnn163srj2qf" path="res://shared/lamp/lamp.png" id="2_s13m3"]
+[ext_resource type="Texture2D" uid="uid://dsnn163srj2qf" path="res://interactables/lamp/lamp.png" id="2_s13m3"]
 [ext_resource type="Texture2D" uid="uid://bhqyowts1ifxj" path="res://shared/point_light.png" id="3_scbcn"]
 
 [sub_resource type="Animation" id="Animation_ck3em"]

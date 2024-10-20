@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b7b4ncaa8cqim"]
 
 [ext_resource type="PackedScene" uid="uid://clew0041u5icw" path="res://interactables/light_item.tscn" id="1_gdgu7"]
-[ext_resource type="Texture2D" uid="uid://vnu0b7va1hce" path="res://levels/market/coin.png" id="2_g8hp8"]
+[ext_resource type="Texture2D" uid="uid://vnu0b7va1hce" path="res://interactables/gold_objects/coin/coin.png" id="2_g8hp8"]
 
 [node name="Coin" instance=ExtResource("1_gdgu7")]
 

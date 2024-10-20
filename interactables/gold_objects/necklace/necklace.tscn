@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://8t0qjbpllrgh"]
 
 [ext_resource type="PackedScene" uid="uid://clew0041u5icw" path="res://interactables/light_item.tscn" id="1_hcn4s"]
-[ext_resource type="Texture2D" uid="uid://c7wgryciy2os1" path="res://levels/house/necklace.png" id="2_bmnsi"]
+[ext_resource type="Texture2D" uid="uid://c7wgryciy2os1" path="res://interactables/gold_objects/necklace/necklace.png" id="2_bmnsi"]
 
 [node name="Necklace" instance=ExtResource("1_hcn4s")]
 

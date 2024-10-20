@@ -2,8 +2,8 @@
 
 [ext_resource type="TileSet" uid="uid://d4c5n8jeufv3n" path="res://levels/castle/brick_tiles.tres" id="1_0yt3h"]
 [ext_resource type="PackedScene" uid="uid://bkx8cgllgvkhp" path="res://crow/crow.tscn" id="2_1x20d"]
-[ext_resource type="PackedScene" uid="uid://bh0bks5v88sw3" path="res://levels/castle/chalice.tscn" id="3_3q48p"]
-[ext_resource type="PackedScene" uid="uid://bk0rewm1revtk" path="res://shared/lamp/lamp.tscn" id="4_preso"]
+[ext_resource type="PackedScene" uid="uid://bh0bks5v88sw3" path="res://interactables/gold_objects/chalice/chalice.tscn" id="3_3q48p"]
+[ext_resource type="PackedScene" uid="uid://bk0rewm1revtk" path="res://interactables/lamp/lamp.tscn" id="4_preso"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1js3q"]
 normal = Vector2(1, 0)

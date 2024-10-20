@@ -1,14 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://r27rprratt4c"]
+[gd_scene load_steps=7 format=3 uid="uid://r27rprratt4c"]
 
 [ext_resource type="Script" path="res://levels/tutorial/tutorial.gd" id="1_hsq3r"]
 [ext_resource type="PackedScene" uid="uid://b1w7iwiappfhy" path="res://levels/tower/tower.tscn" id="1_mktg5"]
-[ext_resource type="PackedScene" uid="uid://d0ohh7w3ak5t" path="res://levels/tutorial/ring.tscn" id="2_6pvg6"]
+[ext_resource type="PackedScene" uid="uid://d0ohh7w3ak5t" path="res://interactables/gold_objects/ring/ring.tscn" id="2_6pvg6"]
 [ext_resource type="Theme" uid="uid://bxdf7u7xvvvni" path="res://levels/tutorial/tutorial_theme.tres" id="4_lmfe7"]
-[ext_resource type="PackedScene" uid="uid://bk0rewm1revtk" path="res://shared/lamp/lamp.tscn" id="5_brc10"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_blvnk"]
-radius = 13.0
-height = 104.0
+[ext_resource type="PackedScene" uid="uid://bk0rewm1revtk" path="res://interactables/lamp/lamp.tscn" id="5_brc10"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l3ly0"]
 size = Vector2(104, 64)
@@ -16,16 +12,7 @@ size = Vector2(104, 64)
 [node name="Tower" instance=ExtResource("1_mktg5")]
 script = ExtResource("1_hsq3r")
 
-[node name="CauldronArea" type="Area2D" parent="Cauldron" index="2"]
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cauldron/CauldronArea" index="0"]
-position = Vector2(324, 211)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_blvnk")
-
-[node name="ShelfLamp" parent="." index="7"]
+[node name="EntryPortal" parent="." index="2"]
 visible = false
 
 [node name="Hook" type="StaticBody2D" parent="." index="9"]
@@ -37,7 +24,7 @@ polygon = PackedVector2Array(511, -238, 527, -225, 542, -242, 527, -216)
 [node name="Ring" parent="." index="10" instance=ExtResource("2_6pvg6")]
 position = Vector2(526, -246)
 
-[node name="EntryPortal" parent="." index="12"]
+[node name="ShelfLamp" parent="." index="11"]
 visible = false
 
 [node name="InteractableLamp" parent="." index="14" instance=ExtResource("5_brc10")]
@@ -90,7 +77,7 @@ offset_left = 234.0
 offset_top = -347.0
 offset_right = 402.0
 offset_bottom = -293.0
-text = "Grab things in your beak using Q"
+text = "Grab things in your beak using E"
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -153,9 +140,9 @@ text = "I need more gold! Go through the portal and bring me more for my potion"
 horizontal_alignment = 1
 autowrap_mode = 2
 
+[connection signal="crow_went_through_portal" from="ExitPortal" to="." method="_on_go_through_portal"]
 [connection signal="body_entered" from="Cauldron/CauldronArea" to="." method="_on_ring_put_in_cauldron"]
 [connection signal="picked_up" from="Ring" to="." method="_on_ring_picked_up"]
-[connection signal="body_entered" from="ExitPortal" to="." method="_on_go_through_portal"]
 [connection signal="picked_up" from="InteractableLamp" to="." method="_on_lamp_picked_up"]
 [connection signal="body_entered" from="ShelfArea" to="." method="_on_lamp_put_on_bookshelf"]
 [connection signal="body_exited" from="PerchArea" to="." method="_on_left_perch"]

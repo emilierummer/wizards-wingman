@@ -1,8 +1,8 @@
-[gd_scene load_steps=30 format=3 uid="uid://7ocq84lohrbk"]
+[gd_scene load_steps=32 format=3 uid="uid://7ocq84lohrbk"]
 
 [ext_resource type="Script" path="res://levels/market/market.gd" id="1_3lnnu"]
 [ext_resource type="PackedScene" uid="uid://bkx8cgllgvkhp" path="res://crow/crow.tscn" id="1_maouf"]
-[ext_resource type="PackedScene" uid="uid://b7b4ncaa8cqim" path="res://levels/market/coin.tscn" id="2_v3hek"]
+[ext_resource type="PackedScene" uid="uid://b7b4ncaa8cqim" path="res://interactables/gold_objects/coin/coin.tscn" id="2_v3hek"]
 [ext_resource type="Texture2D" uid="uid://c5vxp3axs4oiy" path="res://levels/market/npc1_left.png" id="4_88y25"]
 [ext_resource type="Texture2D" uid="uid://hxnjtj6fuuad" path="res://levels/market/npc1_right.png" id="5_6twrg"]
 [ext_resource type="Texture2D" uid="uid://ceo0htrjjm6uo" path="res://levels/market/npc2_front.png" id="5_thq6g"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://mx1dsj34nnmb" path="res://levels/market/npc2_side.png" id="7_fvdnw"]
 [ext_resource type="Texture2D" uid="uid://os3kkmaahdm1" path="res://levels/market/npc2_back.png" id="7_o6fcm"]
 [ext_resource type="Texture2D" uid="uid://cobc1hpa51qvs" path="res://levels/market/npc3_side.png" id="8_184th"]
+[ext_resource type="PackedScene" uid="uid://bltyn21ba7e66" path="res://shared/portal/portal.tscn" id="11_5lgrg"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rib45"]
 normal = Vector2(1, 0)
@@ -485,6 +486,9 @@ _data = {
 "walk_right": SubResource("Animation_l0b02")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tnb1c"]
+size = Vector2(646, 136)
+
 [node name="Market" type="Node2D"]
 script = ExtResource("1_3lnnu")
 
@@ -514,8 +518,14 @@ shape = SubResource("WorldBoundaryShape2D_nlpii")
 position = Vector2(320, 0)
 shape = SubResource("WorldBoundaryShape2D_tiocl")
 
-[node name="Crow" parent="." instance=ExtResource("1_maouf")]
-position = Vector2(55, 94)
+[node name="EntryPortal" parent="." instance=ExtResource("11_5lgrg")]
+position = Vector2(19, 78)
+scale = Vector2(2, 2)
+
+[node name="ExitPortal" parent="." instance=ExtResource("11_5lgrg")]
+position = Vector2(620, 56)
+scale = Vector2(2, 2)
+start_showing = false
 
 [node name="LeftStand" type="Node2D" parent="."]
 
@@ -625,6 +635,17 @@ position = Vector2(441, 221)
 [node name="Coin7" parent="." instance=ExtResource("2_v3hek")]
 position = Vector2(456, 221)
 
+[node name="SafeArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SafeArea"]
+position = Vector2(320, 68)
+shape = SubResource("RectangleShape2D_tnb1c")
+debug_color = Color(0.784382, 0.113387, 1, 0.42)
+
+[node name="Crow" parent="." instance=ExtResource("1_maouf")]
+position = Vector2(18, 78)
+
+[connection signal="crow_went_through_portal" from="ExitPortal" to="." method="_on_crow_went_through_exit_portal"]
 [connection signal="body_entered" from="RightShopkeeper/Sightline" to="." method="_on_sightline_body_entered"]
 [connection signal="timeout" from="RightShopkeeper/Timer" to="." method="_on_right_shopkeeper_timer_timeout"]
 [connection signal="animation_finished" from="RightShopkeeper/AnimationPlayer" to="." method="_on_right_shopkeeper_animation_finished"]
@@ -634,3 +655,4 @@ position = Vector2(456, 221)
 [connection signal="body_entered" from="Customer/Sightline" to="." method="_on_sightline_body_entered"]
 [connection signal="timeout" from="Customer/Timer" to="." method="_on_customer_timer_timeout"]
 [connection signal="animation_finished" from="Customer/AnimationPlayer" to="." method="_on_customer_animation_finished"]
+[connection signal="body_entered" from="SafeArea" to="." method="_on_safe_area_entered"]

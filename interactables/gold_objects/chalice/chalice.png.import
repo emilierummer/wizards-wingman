@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsnn163srj2qf"
-path="res://.godot/imported/lamp.png-945b4f5323ea8960eec5c4c2794349e1.ctex"
+uid="uid://oclou2nae4ps"
+path="res://.godot/imported/chalice.png-07ed73e5b4da07706f9dc6f46ddb1a3e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://shared/lamp/lamp.png"
-dest_files=["res://.godot/imported/lamp.png-945b4f5323ea8960eec5c4c2794349e1.ctex"]
+source_file="res://interactables/gold_objects/chalice/chalice.png"
+dest_files=["res://.godot/imported/chalice.png-07ed73e5b4da07706f9dc6f46ddb1a3e.ctex"]
 
 [params]
 

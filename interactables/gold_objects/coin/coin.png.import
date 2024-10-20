@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7wgryciy2os1"
-path="res://.godot/imported/necklace.png-fd8841309170acba1dbfcfc29edb81be.ctex"
+uid="uid://vnu0b7va1hce"
+path="res://.godot/imported/coin.png-e21a3745d70508bcfeea1e11784a2c87.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://levels/house/necklace.png"
-dest_files=["res://.godot/imported/necklace.png-fd8841309170acba1dbfcfc29edb81be.ctex"]
+source_file="res://interactables/gold_objects/coin/coin.png"
+dest_files=["res://.godot/imported/coin.png-e21a3745d70508bcfeea1e11784a2c87.ctex"]
 
 [params]
 

@@ -51,17 +51,6 @@ var held_beak: LightItem :
 		held_beak = item
 
 
-#func _process(_delta):
-	#if is_on_floor():
-		#print("playing idle")
-		#BodyAnimator.clear_queue()
-		#BodyAnimator.play("idle")
-	#else:
-		#print("playing flap_wings")
-		#BodyAnimator.clear_queue()
-		#BodyAnimator.play("flap_wings")
-
-
 func _physics_process(delta):
 	if disabled: return
 	############### MOVEMENT ###############

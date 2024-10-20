@@ -1,5 +1,7 @@
 extends Node2D
 
+signal level_completed
+
 @onready var RightShopkeeper = $RightShopkeeper
 @onready var Right_Timer = $RightShopkeeper/Timer
 @onready var Right_AnimationPlayer = $RightShopkeeper/AnimationPlayer
@@ -22,7 +24,7 @@ func _ready():
 	Right_Timer.start(randf_range(1, 5))
 	Customer_Timer.start(randf_range(1, 5))
 	Left_Timer.start(randf_range(1, 5))
-
+	$EntryPortal.tween_hide(0.25)
 
 
 func _on_right_shopkeeper_timer_timeout():
@@ -78,3 +80,12 @@ func _on_crow_spotted():
 	Crow_AnimationPlayer.call_deferred("queue", "flap_wings")
 	await tween.finished
 	Crow.disabled = false
+
+
+func _on_safe_area_entered(body):
+	if body is CharacterBody2D and Crow.held_beak != null:
+		$ExitPortal.tween_show()
+
+
+func _on_crow_went_through_exit_portal():
+	level_completed.emit()

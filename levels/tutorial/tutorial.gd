@@ -57,7 +57,6 @@ func _on_ring_put_in_cauldron(body):
 
 
 ## 5. Go through portal
-func _on_go_through_portal(body):
-	if not body is CharacterBody2D: return
+func _on_go_through_portal():
 	if ring_in_potion:
 		level_completed.emit()

@@ -1,10 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://b1w7iwiappfhy"]
+[gd_scene load_steps=19 format=3 uid="uid://b1w7iwiappfhy"]
 
 [ext_resource type="Script" path="res://levels/tower/tower.gd" id="1_h2j3u"]
 [ext_resource type="Texture2D" uid="uid://b6ot6mphiorrw" path="res://levels/tower/tutorial_background.png" id="2_v7vg7"]
 [ext_resource type="Texture2D" uid="uid://dnpgxl2ugwsst" path="res://levels/tower/hanging_plants.png" id="3_obyyo"]
 [ext_resource type="Texture2D" uid="uid://lk8jcciwtxqr" path="res://levels/tower/cauldron.png" id="4_7l65i"]
-[ext_resource type="PackedScene" uid="uid://coxmrk4lomaqj" path="res://shared/lamp/static_lamp.tscn" id="5_36cdy"]
+[ext_resource type="PackedScene" uid="uid://coxmrk4lomaqj" path="res://interactables/lamp/static_lamp.tscn" id="5_36cdy"]
 [ext_resource type="Texture2D" uid="uid://c4ucnfnst0qgm" path="res://levels/tower/lamp_chain.png" id="5_mh7al"]
 [ext_resource type="PackedScene" uid="uid://bltyn21ba7e66" path="res://shared/portal/portal.tscn" id="7_a8vgk"]
 [ext_resource type="PackedScene" uid="uid://bkx8cgllgvkhp" path="res://crow/crow.tscn" id="7_snlp6"]
@@ -36,6 +36,10 @@ size = Vector2(111, 9)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p4ctm"]
 size = Vector2(104, 188)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bsp6n"]
+radius = 13.0
+height = 104.0
 
 [node name="Tower" type="Node2D"]
 script = ExtResource("1_h2j3u")
@@ -75,6 +79,15 @@ shape = SubResource("WorldBoundaryShape2D_v6gcs")
 position = Vector2(320, 0)
 shape = SubResource("WorldBoundaryShape2D_gjter")
 
+[node name="EntryPortal" parent="." instance=ExtResource("7_a8vgk")]
+position = Vector2(29, 63)
+scale = Vector2(4, 4)
+
+[node name="ExitPortal" parent="." instance=ExtResource("7_a8vgk")]
+position = Vector2(618, -191)
+scale = Vector2(4, 4)
+start_showing = false
+
 [node name="Herbs" type="Sprite2D" parent="."]
 position = Vector2(161.382, -5.5)
 scale = Vector2(1.94737, 1.94737)
@@ -110,6 +123,15 @@ texture = ExtResource("4_7l65i")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Cauldron"]
 polygon = PackedVector2Array(268, 214, 281, 205, 322, 200, 364, 205, 379, 214, 372, 233, 383, 261, 380, 293, 371, 302, 384, 326, 402, 329, 408, 374, 249, 373, 256, 331, 275, 326, 282, 304, 267, 288, 266, 258, 277, 236)
 
+[node name="CauldronArea" type="Area2D" parent="Cauldron"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cauldron/CauldronArea"]
+position = Vector2(324, 211)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_bsp6n")
+
 [node name="HangingLamp" parent="." instance=ExtResource("5_36cdy")]
 position = Vector2(198, -217)
 scale = Vector2(3, 3)
@@ -132,19 +154,14 @@ scale = Vector2(2, 2)
 enabled = false
 
 [node name="Crow" parent="." instance=ExtResource("7_snlp6")]
-position = Vector2(88, 154)
+position = Vector2(28, 48)
 scale = Vector2(1.5, 1.5)
 
 [node name="Camera" type="Camera2D" parent="."]
 offset = Vector2(320, 180)
 
-[node name="EntryPortal" parent="." instance=ExtResource("7_a8vgk")]
-position = Vector2(29, 119)
-scale = Vector2(4, 4)
-
-[node name="ExitPortal" parent="." instance=ExtResource("7_a8vgk")]
-position = Vector2(618, -191)
-scale = Vector2(4, 4)
+[connection signal="crow_went_through_portal" from="ExitPortal" to="." method="_on_crow_went_through_exit_portal"]
+[connection signal="body_entered" from="Cauldron/CauldronArea" to="." method="_on_body_entered_cauldron"]
 
 [editable path="HangingLamp"]
 [editable path="ShelfLamp"]

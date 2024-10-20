@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://d0ohh7w3ak5t"]
 
 [ext_resource type="PackedScene" uid="uid://clew0041u5icw" path="res://interactables/light_item.tscn" id="1_y7w7i"]
-[ext_resource type="Texture2D" uid="uid://g616bjbg8dn8" path="res://levels/tutorial/ring.png" id="2_s8lj4"]
+[ext_resource type="Texture2D" uid="uid://g616bjbg8dn8" path="res://interactables/gold_objects/ring/ring.png" id="2_s8lj4"]
 
 [node name="Ring" instance=ExtResource("1_y7w7i")]
 

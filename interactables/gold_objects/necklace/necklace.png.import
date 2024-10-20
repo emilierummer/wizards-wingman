@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vnu0b7va1hce"
-path="res://.godot/imported/coin.png-d256683ee7662631f30ba8823fcb8236.ctex"
+uid="uid://c7wgryciy2os1"
+path="res://.godot/imported/necklace.png-05920d4db19470e778be2660fe51be6c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://levels/market/coin.png"
-dest_files=["res://.godot/imported/coin.png-d256683ee7662631f30ba8823fcb8236.ctex"]
+source_file="res://interactables/gold_objects/necklace/necklace.png"
+dest_files=["res://.godot/imported/necklace.png-05920d4db19470e778be2660fe51be6c.ctex"]
 
 [params]
 
