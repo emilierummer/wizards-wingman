@@ -1,7 +1,8 @@
-[gd_scene load_steps=37 format=3 uid="uid://7ocq84lohrbk"]
+[gd_scene load_steps=38 format=3 uid="uid://7ocq84lohrbk"]
 
 [ext_resource type="Script" path="res://levels/market/market.gd" id="1_3lnnu"]
 [ext_resource type="PackedScene" uid="uid://bkx8cgllgvkhp" path="res://crow/crow.tscn" id="1_maouf"]
+[ext_resource type="Texture2D" uid="uid://drs36kt6s0ihf" path="res://levels/market/market_background.png" id="2_ekduu"]
 [ext_resource type="PackedScene" uid="uid://b7b4ncaa8cqim" path="res://interactables/gold_objects/coin/coin.tscn" id="2_v3hek"]
 [ext_resource type="Texture2D" uid="uid://dqg7c1pbsx7aq" path="res://levels/market/market_stall2_awning.png" id="3_uainx"]
 [ext_resource type="Texture2D" uid="uid://c5vxp3axs4oiy" path="res://levels/market/npc1_left.png" id="4_88y25"]
@@ -522,6 +523,11 @@ shape = SubResource("WorldBoundaryShape2D_nlpii")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Floor"]
 position = Vector2(320, 0)
 shape = SubResource("WorldBoundaryShape2D_tiocl")
+
+[node name="MarketBackground" type="Sprite2D" parent="."]
+position = Vector2(320, 180)
+scale = Vector2(5, 5)
+texture = ExtResource("2_ekduu")
 
 [node name="EntryPortal" parent="." instance=ExtResource("11_5lgrg")]
 position = Vector2(19, 64)

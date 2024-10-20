@@ -7,13 +7,14 @@
 [ext_resource type="PackedScene" uid="uid://bk0rewm1revtk" path="res://interactables/lamp/lamp.tscn" id="5_brc10"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l3ly0"]
-size = Vector2(104, 64)
+size = Vector2(113, 64)
 
 [node name="Tower" instance=ExtResource("1_mktg5")]
 script = ExtResource("1_hsq3r")
 
 [node name="EntryPortal" parent="." index="2"]
 visible = false
+start_showing = false
 
 [node name="Hook" type="StaticBody2D" parent="." index="9"]
 position = Vector2(-5, 9)
@@ -44,14 +45,14 @@ offset = Vector2(0, 30)
 [node name="ShelfArea" type="Area2D" parent="." index="15"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ShelfArea" index="0"]
-position = Vector2(591, 142)
+position = Vector2(586.5, 169)
 shape = SubResource("RectangleShape2D_l3ly0")
 debug_color = Color(0.80031, 0.182623, 0.917965, 0.42)
 
 [node name="PerchArea" type="Area2D" parent="." index="16"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PerchArea" index="0"]
-position = Vector2(98, 156)
+position = Vector2(97, 170)
 shape = SubResource("RectangleShape2D_l3ly0")
 debug_color = Color(0.80031, 0.182623, 0.917965, 0.42)
 
@@ -97,9 +98,9 @@ autowrap_mode = 2
 visible = false
 layout_mode = 0
 offset_left = 154.0
-offset_top = 32.0
+offset_top = 92.0
 offset_right = 491.0
-offset_bottom = 59.0
+offset_bottom = 119.0
 theme_type_variation = &"SpeechBubble"
 text = "Crowen can you bring that lamp over here?"
 horizontal_alignment = 1
@@ -109,9 +110,9 @@ autowrap_mode = 2
 visible = false
 layout_mode = 0
 offset_left = 203.0
-offset_top = 32.0
+offset_top = 92.0
 offset_right = 435.0
-offset_bottom = 59.0
+offset_bottom = 119.0
 theme_type_variation = &"SpeechBubble"
 text = "Put it on top of the bookshelf"
 horizontal_alignment = 1
@@ -121,9 +122,9 @@ autowrap_mode = 2
 visible = false
 layout_mode = 0
 offset_left = 186.0
-offset_top = 20.0
+offset_top = 72.0
 offset_right = 451.0
-offset_bottom = 73.0
+offset_bottom = 125.0
 theme_type_variation = &"SpeechBubble"
 text = "Go get that gold ring up there and put it in the cauldron"
 horizontal_alignment = 1
@@ -133,13 +134,16 @@ autowrap_mode = 2
 visible = false
 layout_mode = 0
 offset_left = 155.0
-offset_top = 20.0
+offset_top = 72.0
 offset_right = 485.0
-offset_bottom = 73.0
+offset_bottom = 125.0
 theme_type_variation = &"SpeechBubble"
 text = "I need more gold! Go through the portal and bring me more for my potion"
 horizontal_alignment = 1
 autowrap_mode = 2
+
+[node name="Crow" parent="." index="18"]
+position = Vector2(93, 165)
 
 [connection signal="crow_went_through_portal" from="ExitPortal" to="." method="_on_go_through_portal"]
 [connection signal="picked_up" from="Ring" to="." method="_on_ring_picked_up"]
