@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://dqmcvsnry04re"]
+[gd_scene load_steps=13 format=3 uid="uid://dqmcvsnry04re"]
 
 [ext_resource type="PackedScene" uid="uid://bkx8cgllgvkhp" path="res://crow/crow.tscn" id="1_jjwji"]
 [ext_resource type="Script" path="res://levels/house/house.gd" id="1_n7toq"]
 [ext_resource type="PackedScene" uid="uid://dbkgo1yd7gu76" path="res://levels/house/house_outer.tscn" id="2_6cw0y"]
 [ext_resource type="PackedScene" uid="uid://d3qxr4go3snc4" path="res://levels/house/house_inner.tscn" id="3_pf0c7"]
 [ext_resource type="PackedScene" uid="uid://8t0qjbpllrgh" path="res://interactables/gold_objects/necklace/necklace.tscn" id="5_nd0mm"]
+[ext_resource type="AudioStream" uid="uid://dwoaem2er2bwe" path="res://levels/house/house.mp3" id="6_xnno7"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_r4glj"]
 normal = Vector2(1, 0)
@@ -80,6 +81,10 @@ shape = SubResource("RectangleShape2D_0h6be")
 
 [node name="Necklace" parent="." instance=ExtResource("5_nd0mm")]
 position = Vector2(641, 186)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_xnno7")
+autoplay = true
 
 [connection signal="body_entered" from="HouseOuter/OuterRoomArea" to="." method="_on_outer_room_area_entered"]
 [connection signal="body_entered" from="HouseInner/InnerRoomArea" to="." method="_on_inner_room_area_entered"]

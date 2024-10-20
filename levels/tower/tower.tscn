@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b1w7iwiappfhy"]
+[gd_scene load_steps=23 format=3 uid="uid://b1w7iwiappfhy"]
 
 [ext_resource type="Script" path="res://levels/tower/tower.gd" id="1_h2j3u"]
 [ext_resource type="Texture2D" uid="uid://b6ot6mphiorrw" path="res://levels/tower/tutorial_background.png" id="2_v7vg7"]
@@ -8,9 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://coxmrk4lomaqj" path="res://interactables/lamp/static_lamp.tscn" id="5_36cdy"]
 [ext_resource type="Texture2D" uid="uid://b4ccb7pt4pk23" path="res://levels/tower/wizard.png" id="5_hnblp"]
 [ext_resource type="Texture2D" uid="uid://c4ucnfnst0qgm" path="res://levels/tower/lamp_chain.png" id="5_mh7al"]
-[ext_resource type="Texture2D" uid="uid://cf1dwh85wblng" path="res://levels/house/perch.png" id="6_kx4sc"]
+[ext_resource type="Texture2D" path="res://levels/house/perch.png" id="6_kx4sc"]
 [ext_resource type="PackedScene" uid="uid://bltyn21ba7e66" path="res://shared/portal/portal.tscn" id="7_a8vgk"]
 [ext_resource type="PackedScene" uid="uid://bkx8cgllgvkhp" path="res://crow/crow.tscn" id="7_snlp6"]
+[ext_resource type="AudioStream" uid="uid://v5xtrqcmpt6o" path="res://levels/tower/tower.mp3" id="12_vxmrt"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ypn0x"]
 normal = Vector2(1, 0)
@@ -177,6 +178,10 @@ scale = Vector2(1.5, 1.5)
 
 [node name="Camera" type="Camera2D" parent="."]
 offset = Vector2(320, 180)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_vxmrt")
+autoplay = true
 
 [connection signal="crow_went_through_portal" from="ExitPortal" to="." method="_on_crow_went_through_exit_portal"]
 [connection signal="body_entered" from="Cauldron/CauldronArea" to="." method="_on_body_entered_cauldron"]

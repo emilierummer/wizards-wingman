@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://7ocq84lohrbk"]
+[gd_scene load_steps=37 format=3 uid="uid://7ocq84lohrbk"]
 
 [ext_resource type="Script" path="res://levels/market/market.gd" id="1_3lnnu"]
 [ext_resource type="PackedScene" uid="uid://bkx8cgllgvkhp" path="res://crow/crow.tscn" id="1_maouf"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://c041fautynu4h" path="res://levels/market/market_stall2_table.png" id="7_u4mu7"]
 [ext_resource type="Texture2D" uid="uid://cobc1hpa51qvs" path="res://levels/market/npc3_side.png" id="8_184th"]
 [ext_resource type="PackedScene" uid="uid://bltyn21ba7e66" path="res://shared/portal/portal.tscn" id="11_5lgrg"]
+[ext_resource type="AudioStream" uid="uid://bvjp8u1fk0oa3" path="res://levels/market/market.mp3" id="16_231qu"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rib45"]
 normal = Vector2(1, 0)
@@ -662,6 +663,10 @@ debug_color = Color(0.784382, 0.113387, 1, 0.42)
 
 [node name="Crow" parent="." instance=ExtResource("1_maouf")]
 position = Vector2(18, 62)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_231qu")
+autoplay = true
 
 [connection signal="crow_went_through_portal" from="ExitPortal" to="." method="_on_crow_went_through_exit_portal"]
 [connection signal="body_entered" from="LeftShopkeeper/Sightline" to="." method="_on_sightline_body_entered"]
