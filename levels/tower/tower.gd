@@ -16,11 +16,11 @@ func _process(_delta):
 func _ready():
 	## Set up nodes
 	if spawn_holding is HeavyItem:
+		add_child(spawn_holding)
 		Crow.held_claws = spawn_holding
-		add_child(spawn_holding)
 	elif spawn_holding is LightItem:
-		Crow.held_beak = spawn_holding
 		add_child(spawn_holding)
+		Crow.held_beak = spawn_holding
 	
 	## Hide entry portal
 	$EntryPortal.tween_hide(0.25)

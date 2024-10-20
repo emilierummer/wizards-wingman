@@ -57,6 +57,8 @@ func _on_castle_completed():
 
 func _on_leave_tower():
 	call_deferred("remove_child", TowerScene)
+	TowerScene = PackedTowerScene.instantiate()
+	TowerScene.connect("left_tower", _on_leave_tower)
 	match active_level:
 		1: call_deferred("add_child", HouseScene)
 		2: call_deferred("add_child", MarketScene)
