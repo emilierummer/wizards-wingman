@@ -1,14 +1,18 @@
-[gd_scene load_steps=32 format=3 uid="uid://7ocq84lohrbk"]
+[gd_scene load_steps=36 format=3 uid="uid://7ocq84lohrbk"]
 
 [ext_resource type="Script" path="res://levels/market/market.gd" id="1_3lnnu"]
 [ext_resource type="PackedScene" uid="uid://bkx8cgllgvkhp" path="res://crow/crow.tscn" id="1_maouf"]
 [ext_resource type="PackedScene" uid="uid://b7b4ncaa8cqim" path="res://interactables/gold_objects/coin/coin.tscn" id="2_v3hek"]
+[ext_resource type="Texture2D" uid="uid://dqg7c1pbsx7aq" path="res://levels/market/market_stall2_awning.png" id="3_uainx"]
 [ext_resource type="Texture2D" uid="uid://c5vxp3axs4oiy" path="res://levels/market/npc1_left.png" id="4_88y25"]
+[ext_resource type="Texture2D" uid="uid://dnu4hvvfl8p42" path="res://levels/market/market_stall1.png" id="4_iggnj"]
 [ext_resource type="Texture2D" uid="uid://hxnjtj6fuuad" path="res://levels/market/npc1_right.png" id="5_6twrg"]
+[ext_resource type="Texture2D" uid="uid://clv1sevl8et2s" path="res://levels/market/basket.png" id="5_loh4d"]
 [ext_resource type="Texture2D" uid="uid://ceo0htrjjm6uo" path="res://levels/market/npc2_front.png" id="5_thq6g"]
 [ext_resource type="Texture2D" uid="uid://ct7np6l6wwcvu" path="res://levels/market/npc3_back.png" id="6_ijmcp"]
 [ext_resource type="Texture2D" uid="uid://mx1dsj34nnmb" path="res://levels/market/npc2_side.png" id="7_fvdnw"]
 [ext_resource type="Texture2D" uid="uid://os3kkmaahdm1" path="res://levels/market/npc2_back.png" id="7_o6fcm"]
+[ext_resource type="Texture2D" uid="uid://c041fautynu4h" path="res://levels/market/market_stall2_table.png" id="7_u4mu7"]
 [ext_resource type="Texture2D" uid="uid://cobc1hpa51qvs" path="res://levels/market/npc3_side.png" id="8_184th"]
 [ext_resource type="PackedScene" uid="uid://bltyn21ba7e66" path="res://shared/portal/portal.tscn" id="11_5lgrg"]
 
@@ -24,135 +28,6 @@ normal = Vector2(0, 1)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tiocl"]
 distance = -360.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_epqkh"]
-size = Vector2(225, 103.5)
-
-[sub_resource type="Animation" id="Animation_eeofk"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(500, 271)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("4_88y25")]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sightline:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_fmo2t"]
-resource_name = "walk_left"
-length = 1.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(612, 271), Vector2(500, 271)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("4_88y25")]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sightline:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_dgp47"]
-resource_name = "walk_right"
-length = 1.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(500, 271), Vector2(612, 271)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("5_6twrg")]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sightline:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-1, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_87nd1"]
-_data = {
-"RESET": SubResource("Animation_eeofk"),
-"walk_left": SubResource("Animation_fmo2t"),
-"walk_right": SubResource("Animation_dgp47")
-}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rfpgb"]
 size = Vector2(148, 94)
@@ -323,6 +198,135 @@ _data = {
 "look_left": SubResource("Animation_bfjb4"),
 "look_straight": SubResource("Animation_csdfu")
 }
+
+[sub_resource type="Animation" id="Animation_eeofk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(500, 271)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_88y25")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sightline:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_fmo2t"]
+resource_name = "walk_left"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(612, 271), Vector2(500, 271)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_88y25")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sightline:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_dgp47"]
+resource_name = "walk_right"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(500, 271), Vector2(612, 271)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_6twrg")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sightline:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_87nd1"]
+_data = {
+"RESET": SubResource("Animation_eeofk"),
+"walk_left": SubResource("Animation_fmo2t"),
+"walk_right": SubResource("Animation_dgp47")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_epqkh"]
+size = Vector2(239, 103.5)
 
 [sub_resource type="Animation" id="Animation_01svd"]
 length = 0.001
@@ -519,61 +523,26 @@ position = Vector2(320, 0)
 shape = SubResource("WorldBoundaryShape2D_tiocl")
 
 [node name="EntryPortal" parent="." instance=ExtResource("11_5lgrg")]
-position = Vector2(19, 78)
+position = Vector2(19, 64)
 scale = Vector2(2, 2)
 
 [node name="ExitPortal" parent="." instance=ExtResource("11_5lgrg")]
-position = Vector2(620, 56)
+position = Vector2(620, 51)
 scale = Vector2(2, 2)
 start_showing = false
 
-[node name="LeftStand" type="Node2D" parent="."]
+[node name="LeftStandBack" type="Node2D" parent="."]
 
-[node name="Roof" type="StaticBody2D" parent="LeftStand"]
+[node name="Sprite2D2" type="Sprite2D" parent="LeftStandBack"]
+position = Vector2(131, 178)
+scale = Vector2(4, 4)
+texture = ExtResource("3_uainx")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LeftStand/Roof"]
-position = Vector2(1, 46)
-polygon = PackedVector2Array(-1, 122, 226, 122, 117, 72, -1, 72)
+[node name="Roof" type="StaticBody2D" parent="LeftStandBack"]
 
-[node name="RightStand" type="Node2D" parent="."]
-
-[node name="Counter" type="StaticBody2D" parent="RightStand"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RightStand/Counter"]
-position = Vector2(528.5, 308.75)
-shape = SubResource("RectangleShape2D_epqkh")
-
-[node name="Roof" type="StaticBody2D" parent="RightStand"]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RightStand/Roof"]
-position = Vector2(-2, 18)
-polygon = PackedVector2Array(417, 125, 455, 74, 644, 74, 642, 127)
-
-[node name="Bowl" type="StaticBody2D" parent="."]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bowl"]
-position = Vector2(129, 7.27596e-12)
-scale = Vector2(0.701613, 1)
-polygon = PackedVector2Array(424.736, 239, 435, 257, 474, 257, 484, 239, 471, 253, 438, 253)
-
-[node name="RightShopkeeper" type="Node2D" parent="."]
-position = Vector2(500, 271)
-
-[node name="Sprite2D" type="Sprite2D" parent="RightShopkeeper"]
-scale = Vector2(1.4, 1.4)
-texture = ExtResource("4_88y25")
-
-[node name="Sightline" type="Area2D" parent="RightShopkeeper"]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RightShopkeeper/Sightline"]
-polygon = PackedVector2Array(-10, -72, -427, 218, -426, -104)
-
-[node name="Timer" type="Timer" parent="RightShopkeeper"]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="RightShopkeeper"]
-libraries = {
-"": SubResource("AnimationLibrary_87nd1")
-}
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LeftStandBack/Roof"]
+position = Vector2(4, 44)
+polygon = PackedVector2Array(-6, 116, 216, 116, 162, 61, -6, 61)
 
 [node name="LeftShopkeeper" type="Node2D" parent="."]
 position = Vector2(151, 272)
@@ -595,6 +564,49 @@ debug_color = Color(0.972549, 0, 0, 0.419608)
 libraries = {
 "": SubResource("AnimationLibrary_mgx01")
 }
+
+[node name="LeftStandFront" type="Sprite2D" parent="."]
+position = Vector2(127, 306)
+scale = Vector2(4, 4)
+texture = ExtResource("7_u4mu7")
+
+[node name="RightShopkeeper" type="Node2D" parent="."]
+position = Vector2(500, 271)
+
+[node name="Sprite2D" type="Sprite2D" parent="RightShopkeeper"]
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("4_88y25")
+
+[node name="Sightline" type="Area2D" parent="RightShopkeeper"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RightShopkeeper/Sightline"]
+polygon = PackedVector2Array(-10, -72, -427, 218, -426, -104)
+
+[node name="Timer" type="Timer" parent="RightShopkeeper"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="RightShopkeeper"]
+libraries = {
+"": SubResource("AnimationLibrary_87nd1")
+}
+
+[node name="RightStand" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="RightStand"]
+position = Vector2(501, 233)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("4_iggnj")
+
+[node name="Counter" type="StaticBody2D" parent="RightStand"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightStand/Counter"]
+position = Vector2(521.5, 308.75)
+shape = SubResource("RectangleShape2D_epqkh")
+
+[node name="Roof" type="StaticBody2D" parent="RightStand"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RightStand/Roof"]
+position = Vector2(2, 15)
+polygon = PackedVector2Array(400, 138, 455, 74, 644, 74, 644, 136)
 
 [node name="Customer" type="Node2D" parent="."]
 position = Vector2(60, 280)
@@ -621,37 +633,43 @@ position = Vector2(440, 241)
 position = Vector2(456, 241)
 
 [node name="Coin3" parent="." instance=ExtResource("2_v3hek")]
-position = Vector2(448, 231)
+position = Vector2(461, 228)
 
 [node name="Coin4" parent="." instance=ExtResource("2_v3hek")]
-position = Vector2(463, 231)
+position = Vector2(449, 231)
 
 [node name="Coin5" parent="." instance=ExtResource("2_v3hek")]
-position = Vector2(433, 230)
+position = Vector2(437, 228)
 
-[node name="Coin6" parent="." instance=ExtResource("2_v3hek")]
-position = Vector2(441, 221)
+[node name="Bowl" type="StaticBody2D" parent="."]
 
-[node name="Coin7" parent="." instance=ExtResource("2_v3hek")]
-position = Vector2(456, 221)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bowl"]
+position = Vector2(129, 7.27596e-12)
+scale = Vector2(0.701613, 1)
+polygon = PackedVector2Array(424.736, 239, 443.264, 259, 466.069, 259, 484, 239, 463.218, 252, 444.69, 252)
+
+[node name="Sprite2D" type="Sprite2D" parent="Bowl"]
+position = Vector2(448, 239)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("5_loh4d")
 
 [node name="SafeArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SafeArea"]
-position = Vector2(320, 68)
+position = Vector2(320, 41)
 shape = SubResource("RectangleShape2D_tnb1c")
 debug_color = Color(0.784382, 0.113387, 1, 0.42)
 
 [node name="Crow" parent="." instance=ExtResource("1_maouf")]
-position = Vector2(18, 78)
+position = Vector2(18, 62)
 
 [connection signal="crow_went_through_portal" from="ExitPortal" to="." method="_on_crow_went_through_exit_portal"]
-[connection signal="body_entered" from="RightShopkeeper/Sightline" to="." method="_on_sightline_body_entered"]
-[connection signal="timeout" from="RightShopkeeper/Timer" to="." method="_on_right_shopkeeper_timer_timeout"]
-[connection signal="animation_finished" from="RightShopkeeper/AnimationPlayer" to="." method="_on_right_shopkeeper_animation_finished"]
 [connection signal="body_entered" from="LeftShopkeeper/Sightline" to="." method="_on_sightline_body_entered"]
 [connection signal="timeout" from="LeftShopkeeper/Timer" to="." method="_on_left_shopkeeper_timer_timeout"]
 [connection signal="animation_finished" from="LeftShopkeeper/AnimationPlayer" to="." method="_on_left_shopkeeper_animation_finished"]
+[connection signal="body_entered" from="RightShopkeeper/Sightline" to="." method="_on_sightline_body_entered"]
+[connection signal="timeout" from="RightShopkeeper/Timer" to="." method="_on_right_shopkeeper_timer_timeout"]
+[connection signal="animation_finished" from="RightShopkeeper/AnimationPlayer" to="." method="_on_right_shopkeeper_animation_finished"]
 [connection signal="body_entered" from="Customer/Sightline" to="." method="_on_sightline_body_entered"]
 [connection signal="timeout" from="Customer/Timer" to="." method="_on_customer_timer_timeout"]
 [connection signal="animation_finished" from="Customer/AnimationPlayer" to="." method="_on_customer_animation_finished"]

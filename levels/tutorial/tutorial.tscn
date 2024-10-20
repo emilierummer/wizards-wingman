@@ -16,15 +16,16 @@ script = ExtResource("1_hsq3r")
 visible = false
 
 [node name="Hook" type="StaticBody2D" parent="." index="9"]
+position = Vector2(-5, 9)
 collision_layer = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hook" index="0"]
 polygon = PackedVector2Array(511, -238, 527, -225, 542, -242, 527, -216)
 
 [node name="Ring" parent="." index="10" instance=ExtResource("2_6pvg6")]
-position = Vector2(526, -246)
+position = Vector2(521, -237)
 
-[node name="ShelfLamp" parent="." index="11"]
+[node name="ShelfLamp" parent="." index="13"]
 visible = false
 
 [node name="InteractableLamp" parent="." index="14" instance=ExtResource("5_brc10")]
@@ -141,8 +142,8 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [connection signal="crow_went_through_portal" from="ExitPortal" to="." method="_on_go_through_portal"]
-[connection signal="body_entered" from="Cauldron/CauldronArea" to="." method="_on_ring_put_in_cauldron"]
 [connection signal="picked_up" from="Ring" to="." method="_on_ring_picked_up"]
+[connection signal="body_entered" from="Cauldron/CauldronArea" to="." method="_on_ring_put_in_cauldron"]
 [connection signal="picked_up" from="InteractableLamp" to="." method="_on_lamp_picked_up"]
 [connection signal="body_entered" from="ShelfArea" to="." method="_on_lamp_put_on_bookshelf"]
 [connection signal="body_exited" from="PerchArea" to="." method="_on_left_perch"]
