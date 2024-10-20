@@ -68,11 +68,13 @@ func _on_sightline_body_entered(body):
 
 
 func _on_crow_spotted():
+	if not Crow.held_beak: return
+	Crow.held_beak = null
 	Crow.disabled = true
 	var tween = create_tween()
 	tween.tween_property(Crow, "global_position", Vector2(54, 94), 0.5)
-	Crow_AnimationPlayer.stop()
-	Crow_AnimationPlayer.queue("RESET")
-	Crow_AnimationPlayer.queue("flap_wings")
+	Crow_AnimationPlayer.call_deferred("stop")
+	Crow_AnimationPlayer.call_deferred("queue", "RESET")
+	Crow_AnimationPlayer.call_deferred("queue", "flap_wings")
 	await tween.finished
 	Crow.disabled = false

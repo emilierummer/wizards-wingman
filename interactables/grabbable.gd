@@ -11,7 +11,7 @@ var velocity = Vector2(0, 0)
 var held_by: Node2D : 
 	set(node):
 		held_by = node
-		freeze = true if node else false
+		set_deferred("freeze", true if node else false)
 		set_collision_layer_value(1, false if node else true)
 
 

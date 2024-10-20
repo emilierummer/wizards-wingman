@@ -156,9 +156,8 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rfpgb"]
 size = Vector2(148, 94)
 
-[sub_resource type="Animation" id="Animation_csdfu"]
-resource_name = "look_straight"
-length = 3.0
+[sub_resource type="Animation" id="Animation_b1t4e"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -193,11 +192,12 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, -57)]
+"values": [Vector2(-77, -58)]
 }
 
-[sub_resource type="Animation" id="Animation_b1t4e"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_g44bx"]
+resource_name = "look_back"
+length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -208,7 +208,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("5_thq6g")]
+"values": [ExtResource("7_o6fcm")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -275,8 +275,8 @@ tracks/2/keys = {
 "values": [Vector2(-77, -58)]
 }
 
-[sub_resource type="Animation" id="Animation_g44bx"]
-resource_name = "look_back"
+[sub_resource type="Animation" id="Animation_csdfu"]
+resource_name = "look_straight"
 length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -288,7 +288,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("7_o6fcm")]
+"values": [ExtResource("5_thq6g")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -312,7 +312,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-77, -58)]
+"values": [Vector2(0, -57)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mgx01"]
@@ -546,27 +546,6 @@ position = Vector2(129, 7.27596e-12)
 scale = Vector2(0.701613, 1)
 polygon = PackedVector2Array(424.736, 239, 435, 257, 474, 257, 484, 239, 471, 253, 438, 253)
 
-[node name="Coin" parent="." instance=ExtResource("2_v3hek")]
-position = Vector2(440, 241)
-
-[node name="Coin2" parent="." instance=ExtResource("2_v3hek")]
-position = Vector2(456, 241)
-
-[node name="Coin3" parent="." instance=ExtResource("2_v3hek")]
-position = Vector2(448, 231)
-
-[node name="Coin4" parent="." instance=ExtResource("2_v3hek")]
-position = Vector2(463, 231)
-
-[node name="Coin5" parent="." instance=ExtResource("2_v3hek")]
-position = Vector2(433, 230)
-
-[node name="Coin6" parent="." instance=ExtResource("2_v3hek")]
-position = Vector2(441, 221)
-
-[node name="Coin7" parent="." instance=ExtResource("2_v3hek")]
-position = Vector2(456, 221)
-
 [node name="RightShopkeeper" type="Node2D" parent="."]
 position = Vector2(500, 271)
 
@@ -624,6 +603,27 @@ texture = ExtResource("6_ijmcp")
 libraries = {
 "": SubResource("AnimationLibrary_rhq3s")
 }
+
+[node name="Coin" parent="." instance=ExtResource("2_v3hek")]
+position = Vector2(440, 241)
+
+[node name="Coin2" parent="." instance=ExtResource("2_v3hek")]
+position = Vector2(456, 241)
+
+[node name="Coin3" parent="." instance=ExtResource("2_v3hek")]
+position = Vector2(448, 231)
+
+[node name="Coin4" parent="." instance=ExtResource("2_v3hek")]
+position = Vector2(463, 231)
+
+[node name="Coin5" parent="." instance=ExtResource("2_v3hek")]
+position = Vector2(433, 230)
+
+[node name="Coin6" parent="." instance=ExtResource("2_v3hek")]
+position = Vector2(441, 221)
+
+[node name="Coin7" parent="." instance=ExtResource("2_v3hek")]
+position = Vector2(456, 221)
 
 [connection signal="body_entered" from="RightShopkeeper/Sightline" to="." method="_on_sightline_body_entered"]
 [connection signal="timeout" from="RightShopkeeper/Timer" to="." method="_on_right_shopkeeper_timer_timeout"]
