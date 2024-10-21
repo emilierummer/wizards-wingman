@@ -3,7 +3,6 @@ extends Node
 static var PackedTowerScene = preload("res://levels/tower/tower.tscn")
 
 @onready var TutorialScene = preload("res://levels/tutorial/tutorial.tscn").instantiate()
-@onready var HouseScene = preload("res://levels/house/house.tscn").instantiate()
 @onready var MarketScene = preload("res://levels/market/market.tscn").instantiate()
 @onready var CastleScene = preload("res://levels/castle/castle.tscn").instantiate()
 @onready var TitleScreen = preload("res://title_screen/title.tscn").instantiate()
@@ -16,7 +15,6 @@ var active_level = 0
 func _ready():
 	## Connect Signals
 	TutorialScene.connect("level_completed", _on_tutorial_completed)
-	HouseScene.connect("level_completed", _on_house_completed)
 	MarketScene.connect("level_completed", _on_market_completed)
 	CastleScene.connect("level_completed", _on_castle_completed)
 	TitleScreen.connect("play_pressed", _on_title_play_pressed)
@@ -34,23 +32,15 @@ func _on_title_play_pressed():
 
 func _on_tutorial_completed():
 	call_deferred("remove_child", TutorialScene)
-	# TODO: decide if house scene exists
 	call_deferred("add_child", MarketScene)
-	active_level = 2
-
-
-func _on_house_completed():
-	call_deferred("remove_child", HouseScene)
-	TowerScene.spawn_holding = preload("res://interactables/gold_objects/necklace/necklace.tscn").instantiate()
-	call_deferred("add_child", TowerScene)
-	active_level = 2
+	active_level = 1
 
 
 func _on_market_completed():
 	call_deferred("remove_child", MarketScene)
 	TowerScene.spawn_holding = preload("res://interactables/gold_objects/coin/coin.tscn").instantiate()
 	call_deferred("add_child", TowerScene)
-	active_level = 3
+	active_level = 2
 
 
 func _on_castle_completed():
@@ -66,7 +56,6 @@ func _on_leave_tower():
 	TowerScene = PackedTowerScene.instantiate()
 	TowerScene.connect("left_tower", _on_leave_tower)
 	match active_level:
-		1: call_deferred("add_child", HouseScene)
-		2: call_deferred("add_child", MarketScene)
-		3: call_deferred("add_child", CastleScene)
+		1: call_deferred("add_child", MarketScene)
+		2: call_deferred("add_child", CastleScene)
 		null: call_deferred("add_child", CreditsScreen)

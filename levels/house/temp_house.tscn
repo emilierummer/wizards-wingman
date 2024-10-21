@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://d34db0136lkk7"]
-
-[node name="TempHouse" type="Node2D"]
-
-[node name="BackRoom" type="CanvasLayer" parent="."]
-
-[node name="FrontRoom" type="CanvasLayer" parent="."]
