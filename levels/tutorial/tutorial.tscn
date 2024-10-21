@@ -68,9 +68,11 @@ visible = false
 layout_mode = 0
 offset_left = 43.0
 offset_top = 97.0
-offset_right = 182.0
-offset_bottom = 120.0
+offset_right = 147.0
+offset_bottom = 146.0
 text = "Move using WASD"
+horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="GrabBeakLabel" type="Label" parent="Tutorial" index="1"]
 visible = false
@@ -86,10 +88,10 @@ autowrap_mode = 2
 [node name="GrabClawsLabel" type="Label" parent="Tutorial" index="2"]
 visible = false
 layout_mode = 0
-offset_left = 237.0
-offset_top = 134.0
-offset_right = 405.0
-offset_bottom = 188.0
+offset_left = 98.0
+offset_top = 228.0
+offset_right = 210.0
+offset_bottom = 303.0
 text = "Grab things with your claws using E"
 horizontal_alignment = 1
 autowrap_mode = 2
@@ -102,7 +104,7 @@ offset_top = 92.0
 offset_right = 491.0
 offset_bottom = 119.0
 theme_type_variation = &"SpeechBubble"
-text = "Crowen can you bring that lamp over here?"
+text = "Crowly can you bring that lamp over here?"
 horizontal_alignment = 1
 autowrap_mode = 2
 

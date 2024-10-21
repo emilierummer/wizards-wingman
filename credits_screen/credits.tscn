@@ -1,0 +1,72 @@
+[gd_scene load_steps=7 format=3 uid="uid://uqvrmkr6j0y1"]
+
+[ext_resource type="PackedScene" uid="uid://bh0bks5v88sw3" path="res://interactables/gold_objects/chalice/chalice.tscn" id="1_wlpb4"]
+[ext_resource type="Script" path="res://credits_screen/credits.gd" id="1_wn131"]
+[ext_resource type="PackedScene" uid="uid://d0ohh7w3ak5t" path="res://interactables/gold_objects/ring/ring.tscn" id="2_lmdsf"]
+[ext_resource type="PackedScene" uid="uid://8t0qjbpllrgh" path="res://interactables/gold_objects/necklace/necklace.tscn" id="3_ccq74"]
+[ext_resource type="PackedScene" uid="uid://b7b4ncaa8cqim" path="res://interactables/gold_objects/coin/coin.tscn" id="4_dh3ma"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7w8tf"]
+bg_color = Color(0.282353, 0.0627451, 0.376471, 1)
+
+[node name="Credits" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7w8tf")
+script = ExtResource("1_wn131")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "Emilie Rummer - programming, art
+Colton Free - music"
+horizontal_alignment = 1
+
+[node name="Chalice" parent="." instance=ExtResource("1_wlpb4")]
+position = Vector2(515, 217)
+gravity_scale = 0.1
+
+[node name="Sprite" parent="Chalice" index="0"]
+scale = Vector2(3, 3)
+
+[node name="Collider" parent="Chalice" index="1"]
+scale = Vector2(3, 3)
+
+[node name="Ring" parent="." instance=ExtResource("2_lmdsf")]
+position = Vector2(53, 296)
+gravity_scale = 0.1
+
+[node name="Sprite" parent="Ring" index="0"]
+scale = Vector2(2, 2)
+
+[node name="Collider" parent="Ring" index="1"]
+scale = Vector2(2, 2)
+
+[node name="Necklace" parent="." instance=ExtResource("3_ccq74")]
+position = Vector2(136, 68)
+gravity_scale = 0.1
+
+[node name="Sprite" parent="Necklace" index="0"]
+scale = Vector2(2.5, 2.5)
+
+[node name="Collider" parent="Necklace" index="1"]
+position = Vector2(0, 2)
+scale = Vector2(2.5, 2.5)
+
+[node name="Coin" parent="." instance=ExtResource("4_dh3ma")]
+position = Vector2(598, 107)
+gravity_scale = 0.1
+
+[node name="Sprite" parent="Coin" index="0"]
+scale = Vector2(2, 2)
+
+[node name="Collider" parent="Coin" index="1"]
+position = Vector2(0, -5)
+scale = Vector2(2, 2)
+
+[editable path="Chalice"]
+[editable path="Ring"]
+[editable path="Necklace"]
+[editable path="Coin"]

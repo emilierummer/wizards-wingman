@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b1w7iwiappfhy"]
+[gd_scene load_steps=25 format=3 uid="uid://b1w7iwiappfhy"]
 
 [ext_resource type="Script" path="res://levels/tower/tower.gd" id="1_h2j3u"]
 [ext_resource type="Texture2D" uid="uid://b6ot6mphiorrw" path="res://levels/tower/tutorial_background.png" id="2_v7vg7"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bltyn21ba7e66" path="res://shared/portal/portal.tscn" id="7_a8vgk"]
 [ext_resource type="PackedScene" uid="uid://bkx8cgllgvkhp" path="res://crow/crow.tscn" id="7_snlp6"]
 [ext_resource type="Texture2D" uid="uid://8ltbjp5ipnhk" path="res://levels/tower/bookshelf.png" id="8_ove5t"]
+[ext_resource type="Theme" uid="uid://bxdf7u7xvvvni" path="res://levels/tutorial/tutorial_theme.tres" id="12_kmsbt"]
 [ext_resource type="AudioStream" uid="uid://v5xtrqcmpt6o" path="res://levels/tower/tower.mp3" id="12_vxmrt"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ypn0x"]
@@ -177,6 +178,18 @@ scale = Vector2(2, 2)
 
 [node name="PointLight2D" parent="ShelfLamp" index="1"]
 enabled = false
+
+[node name="CompleteSpeech" type="Label" parent="."]
+visible = false
+offset_left = 217.0
+offset_top = 111.0
+offset_right = 424.0
+offset_bottom = 138.0
+theme = ExtResource("12_kmsbt")
+theme_type_variation = &"SpeechBubble"
+text = "The potion is complete!"
+horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="Crow" parent="." instance=ExtResource("7_snlp6")]
 position = Vector2(28, 48)

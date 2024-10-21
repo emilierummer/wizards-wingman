@@ -6,6 +6,7 @@ signal left_tower
 @onready var Camera = $Camera
 
 @export var spawn_holding: Grabbable = null
+@export var last_level: bool = false
 
 ## Align camera with crow
 func _process(_delta):
@@ -29,6 +30,7 @@ func _ready():
 func _on_body_entered_cauldron(body):
 	if not body is Grabbable: return
 	body.queue_free()
+	if last_level: $CompleteSpeech.visible = true
 	$ExitPortal.tween_show()
 
 

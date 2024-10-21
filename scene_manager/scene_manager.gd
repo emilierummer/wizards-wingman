@@ -1,15 +1,14 @@
-extends Node2D
+extends Node
 
-static var PackedTutorialScene = preload("res://levels/tutorial/tutorial.tscn")
-static var PackedHouseScene = preload("res://levels/house/house.tscn")
-static var PackedMarketScene = preload("res://levels/market/market.tscn")
-static var PackedCastleScene = preload("res://levels/castle/castle.tscn")
 static var PackedTowerScene = preload("res://levels/tower/tower.tscn")
 
-@onready var TutorialScene = PackedTutorialScene.instantiate()
-@onready var HouseScene = PackedHouseScene.instantiate()
-@onready var MarketScene = PackedMarketScene.instantiate()
-@onready var CastleScene = PackedCastleScene.instantiate()
+@onready var TutorialScene = preload("res://levels/tutorial/tutorial.tscn").instantiate()
+@onready var HouseScene = preload("res://levels/house/house.tscn").instantiate()
+@onready var MarketScene = preload("res://levels/market/market.tscn").instantiate()
+@onready var CastleScene = preload("res://levels/castle/castle.tscn").instantiate()
+@onready var TitleScreen = preload("res://title_screen/title.tscn").instantiate()
+@onready var CreditsScreen = preload("res://credits_screen/credits.tscn").instantiate()
+
 @onready var TowerScene = PackedTowerScene.instantiate()
 
 var active_level = 0
@@ -20,10 +19,16 @@ func _ready():
 	HouseScene.connect("level_completed", _on_house_completed)
 	MarketScene.connect("level_completed", _on_market_completed)
 	CastleScene.connect("level_completed", _on_castle_completed)
+	TitleScreen.connect("play_pressed", _on_title_play_pressed)
 	
 	TowerScene.connect("left_tower", _on_leave_tower)
 	
 	## Spawn Tutorial
+	call_deferred("add_child", TitleScreen)
+
+
+func _on_title_play_pressed():
+	call_deferred("remove_child", TitleScreen)
 	call_deferred("add_child", TutorialScene)
 
 
@@ -51,6 +56,7 @@ func _on_market_completed():
 func _on_castle_completed():
 	call_deferred("remove_child", CastleScene)
 	TowerScene.spawn_holding = preload("res://interactables/gold_objects/chalice/chalice.tscn").instantiate()
+	TowerScene.last_level = true
 	call_deferred("add_child", TowerScene)
 	active_level = null
 
@@ -63,4 +69,4 @@ func _on_leave_tower():
 		1: call_deferred("add_child", HouseScene)
 		2: call_deferred("add_child", MarketScene)
 		3: call_deferred("add_child", CastleScene)
-		null: print_debug("Game completed!")
+		null: call_deferred("add_child", CreditsScreen)
