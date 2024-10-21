@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0c8ijbbgftl"
-path="res://.godot/imported/itchio_background.png-ba713bfc867f72f6d69e244c34a5aa0c.ctex"
+uid="uid://cpwdovrjqkkdp"
+path="res://.godot/imported/maze_screenshot.png-2889b1919fed54b2048ac9795a0d2e36.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://icon/itchio_background.png"
-dest_files=["res://.godot/imported/itchio_background.png-ba713bfc867f72f6d69e244c34a5aa0c.ctex"]
+source_file="res://images/maze_screenshot.png"
+dest_files=["res://.godot/imported/maze_screenshot.png-2889b1919fed54b2048ac9795a0d2e36.ctex"]
 
 [params]
 

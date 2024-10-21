@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://d2cemstw3sm6"]
 
 [ext_resource type="Script" path="res://ui_screens/title.gd" id="1_85kh5"]
-[ext_resource type="Texture2D" uid="uid://o53ixhc5x1yn" path="res://icon/itchio_banner.png" id="1_h085j"]
+[ext_resource type="Texture2D" uid="uid://o53ixhc5x1yn" path="res://images/itchio_banner.png" id="1_h085j"]
 [ext_resource type="AudioStream" uid="uid://d28f75ys1oo77" path="res://ui_screens/house.mp3" id="3_18oo5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vlbj6"]
