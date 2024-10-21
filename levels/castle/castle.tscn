@@ -93,6 +93,7 @@ color = Color(0, 0, 0, 1)
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_h1syu")
 autoplay = true
+parameters/looping = true
 
 [connection signal="crow_went_through_portal" from="ExitPortal" to="." method="_on_crow_went_through_exit_portal"]
 [connection signal="picked_up" from="Chalice" to="." method="_on_chalice_picked_up"]
