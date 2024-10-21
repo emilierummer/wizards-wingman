@@ -144,7 +144,7 @@ text = "I need more gold! Go through the portal and bring me more for my potion"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="Crow" parent="." index="18"]
+[node name="Crow" parent="." index="19"]
 position = Vector2(93, 165)
 
 [connection signal="crow_went_through_portal" from="ExitPortal" to="." method="_on_go_through_portal"]

@@ -5,8 +5,8 @@ static var PackedTowerScene = preload("res://levels/tower/tower.tscn")
 @onready var TutorialScene = preload("res://levels/tutorial/tutorial.tscn").instantiate()
 @onready var MarketScene = preload("res://levels/market/market.tscn").instantiate()
 @onready var CastleScene = preload("res://levels/castle/castle.tscn").instantiate()
-@onready var TitleScreen = preload("res://title_screen/title.tscn").instantiate()
-@onready var CreditsScreen = preload("res://credits_screen/credits.tscn").instantiate()
+@onready var TitleScreen = preload("res://ui_screens/title.tscn").instantiate()
+@onready var CreditsScreen = preload("res://ui_screens/credits.tscn").instantiate()
 
 @onready var TowerScene = PackedTowerScene.instantiate()
 

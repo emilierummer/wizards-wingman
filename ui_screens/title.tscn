@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://d2cemstw3sm6"]
+[gd_scene load_steps=5 format=3 uid="uid://d2cemstw3sm6"]
 
-[ext_resource type="Script" path="res://title_screen/title.gd" id="1_85kh5"]
+[ext_resource type="Script" path="res://ui_screens/title.gd" id="1_85kh5"]
 [ext_resource type="Texture2D" uid="uid://o53ixhc5x1yn" path="res://icon/itchio_banner.png" id="1_h085j"]
+[ext_resource type="AudioStream" uid="uid://d28f75ys1oo77" path="res://ui_screens/house.mp3" id="3_18oo5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vlbj6"]
 bg_color = Color(0.282353, 0.0627451, 0.376471, 1)
@@ -32,5 +33,9 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Play Game"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_18oo5")
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_start_button_pressed"]
