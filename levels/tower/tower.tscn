@@ -8,9 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://coxmrk4lomaqj" path="res://interactables/lamp/static_lamp.tscn" id="5_36cdy"]
 [ext_resource type="Texture2D" uid="uid://b4ccb7pt4pk23" path="res://levels/tower/wizard.png" id="5_hnblp"]
 [ext_resource type="Texture2D" uid="uid://c4ucnfnst0qgm" path="res://levels/tower/lamp_chain.png" id="5_mh7al"]
-[ext_resource type="Texture2D" path="res://levels/house/perch.png" id="6_kx4sc"]
 [ext_resource type="PackedScene" uid="uid://bltyn21ba7e66" path="res://shared/portal/portal.tscn" id="7_a8vgk"]
 [ext_resource type="PackedScene" uid="uid://bkx8cgllgvkhp" path="res://crow/crow.tscn" id="7_snlp6"]
+[ext_resource type="Texture2D" uid="uid://8rsmcj776qq7" path="res://levels/tower/perch.png" id="7_uo271"]
 [ext_resource type="Texture2D" uid="uid://8ltbjp5ipnhk" path="res://levels/tower/bookshelf.png" id="8_ove5t"]
 [ext_resource type="Theme" uid="uid://bxdf7u7xvvvni" path="res://levels/tutorial/tutorial_theme.tres" id="12_kmsbt"]
 [ext_resource type="AudioStream" uid="uid://v5xtrqcmpt6o" path="res://levels/tower/tower.mp3" id="12_vxmrt"]
@@ -114,7 +114,7 @@ texture = ExtResource("5_hnblp")
 [node name="Sprite2D" type="Sprite2D" parent="Perch"]
 position = Vector2(96, 280)
 scale = Vector2(5, 5)
-texture = ExtResource("6_kx4sc")
+texture = ExtResource("7_uo271")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Perch"]
 position = Vector2(96, 205)
